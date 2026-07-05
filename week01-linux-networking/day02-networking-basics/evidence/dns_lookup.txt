@@ -1,0 +1,33 @@
+=== google.com ===
+Server:         [PRIVATE_WSL_DNS_RESOLVER]
+Address:        [PRIVATE_WSL_DNS_RESOLVER]#53
+
+Non-authoritative answer:
+Name:   google.com
+Address: 172.217.16.142
+Name:   google.com
+Address: 2a00:1450:4017:816::200e
+
+
+=== github.com ===
+Server:         [PRIVATE_WSL_DNS_RESOLVER]
+Address:        [PRIVATE_WSL_DNS_RESOLVER]#53
+
+Non-authoritative answer:
+Name:   github.com
+Address: 140.82.121.3
+
+
+=== overthewire.org ===
+Server:         [PRIVATE_WSL_DNS_RESOLVER]
+Address:        [PRIVATE_WSL_DNS_RESOLVER]#53
+
+Non-authoritative answer:
+Name:   overthewire.org
+Address: 104.21.46.149
+Name:   overthewire.org
+Address: 172.67.140.53
+Name:   overthewire.org
+Address: 2606:4700:3033::6815:2e95
+Name:   overthewire.org
+Address: 2606:4700:3035::ac43:8c35

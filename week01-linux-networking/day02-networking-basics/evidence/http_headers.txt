@@ -1,0 +1,43 @@
+=== example.com ===
+HTTP/2 200
+content-type: text/html
+server: cloudflare
+allow: GET, HEAD
+cf-cache-status: HIT
+cf-ray: [REDACTED_CLOUDFLARE_RAY]
+
+
+=== github.com ===
+HTTP/2 200
+content-type: text/html; charset=utf-8
+content-language: en-US
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: [LONG_CSP_HEADER_REDACTED_FOR_READABILITY]
+server: github.com
+set-cookie: [REDACTED_COOKIE_NAME]=[REDACTED_COOKIE_VALUE]; path=/; HttpOnly; secure; SameSite=Lax
+set-cookie: [REDACTED_COOKIE_NAME]=[REDACTED_COOKIE_VALUE]; expires=[REDACTED]; domain=.github.com; path=/; secure; SameSite=Lax
+set-cookie: [REDACTED_COOKIE_NAME]=[REDACTED_COOKIE_VALUE]; expires=[REDACTED]; domain=.github.com; path=/; HttpOnly; secure; SameSite=Lax
+x-github-request-id: [REDACTED_REQUEST_ID]
+
+
+=== overthewire.org ===
+HTTP/2 200
+content-type: text/html; charset=utf-8
+server: cloudflare
+access-control-allow-origin: *
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: [REDACTED_REQUEST_ID]
+via: 1.1 varnish
+x-cache: HIT
+x-cache-hits: 1
+x-fastly-request-id: [REDACTED_FASTLY_REQUEST_ID]
+cf-cache-status: DYNAMIC
+strict-transport-security: max-age=0
+cf-ray: [REDACTED_CLOUDFLARE_RAY]
+alt-svc: h3=":443"; ma=86400

@@ -1,0 +1,21 @@
+# Private local evidence
+private-bootcamp-evidence/
+*_raw.txt
+raw_*
+*.pcap
+
+# Secrets and credentials
+.env
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+known_hosts
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/

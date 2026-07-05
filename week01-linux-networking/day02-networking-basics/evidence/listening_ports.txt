@@ -1,0 +1,11 @@
+Netid State  Local Address:Port        Peer Address:Port    Process
+
+udp   UNCONN 127.0.0.54:53             0.0.0.0:*            systemd-resolved.service
+udp   UNCONN 127.0.0.53%lo:53          0.0.0.0:*            systemd-resolved.service
+udp   UNCONN [PRIVATE_WSL_DNS]:53       0.0.0.0:*            WSL/internal DNS
+udp   UNCONN 127.0.0.1:323             0.0.0.0:*            chrony.service
+udp   UNCONN [::1]:323                 [::]:*               chrony.service
+
+tcp   LISTEN 127.0.0.53%lo:53          0.0.0.0:*            systemd-resolved.service
+tcp   LISTEN [PRIVATE_WSL_DNS]:53       0.0.0.0:*            WSL/internal DNS
+tcp   LISTEN 127.0.0.54:53             0.0.0.0:*            systemd-resolved.service
