@@ -75,5 +75,5 @@ tmpfs           791M   12K  791M   1% /run/user/1000
 
 [+] Memory usage:
                total        used        free      shared  buff/cache   available
-Mem:           7.7Gi       558Mi       6.7Gi       3.5Mi       602Mi       7.2Gi
+Mem:           7.7Gi       557Mi       6.7Gi       3.5Mi       602Mi       7.2Gi
 Swap:          2.0Gi          0B       2.0Gi
