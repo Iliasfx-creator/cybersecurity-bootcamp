@@ -1,0 +1,80 @@
+=== System Inventory ===
+
+[+] Current user:
+hlias
+
+[+] Hostname:
+DESKTOP-OT3LPII
+
+[+] Kernel:
+Linux DESKTOP-OT3LPII 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 GNU/Linux
+
+[+] IP addresses:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet 10.255.255.254/32 brd 10.255.255.254 scope global lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host proto kernel_lo 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1492 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:b7:5e:21 brd ff:ff:ff:ff:ff:ff
+    altname enx00155db75e21
+    inet 172.29.145.237/20 brd 172.29.159.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::215:5dff:feb7:5e21/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+
+[+] Listening ports:
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess                                                                            
+udp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*           uid:989 ino:13748 sk:1001 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:13746 sk:1002 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*           ino:8201 sk:1003 cgroup:/ <->                                              
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:8931 sk:1004 cgroup:/system.slice/chrony.service <->                   
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:6365 sk:1005 cgroup:/ <->                                              
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:6366 sk:1006 cgroup:/ v6only:1 <->                                     
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:8932 sk:1007 cgroup:/system.slice/chrony.service v6only:1 <->          
+tcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:13747 sk:4 cgroup:/system.slice/systemd-resolved.service <->   
+tcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*           uid:989 ino:13749 sk:5 cgroup:/system.slice/systemd-resolved.service <->   
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*           ino:8202 sk:1 cgroup:/ <->                                                 
+
+[+] Top processes:
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         201  0.0  0.4 123460 32672 ?        Ssl  22:40   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         110  0.0  0.3  44092 29652 ?        Ss   22:40   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root          44  0.0  0.2  50428 17068 ?        S<s  22:40   0:00 /usr/lib/systemd/systemd-journald
+root           1  0.0  0.1  24604 15888 ?        Ss   22:40   0:01 /sbin/init
+root        8312  0.0  0.1 1792300 15404 ?       Ssl  23:11   0:00 /usr/libexec/wsl-pro-service
+systemd+      64  0.0  0.1  22540 14584 ?        Ss   22:40   0:00 /usr/lib/systemd/systemd-resolved
+root         600  0.0  0.1  22692 13652 ?        Ss   22:42   0:00 /usr/lib/systemd/systemd --user
+hlias        356  0.0  0.1  22676 13648 ?        Ss   22:40   0:00 /usr/lib/systemd/systemd --user
+root          86  0.0  0.1  35404 12320 ?        Ss   22:40   0:00 /usr/lib/systemd/systemd-udevd
+
+[+] Disk usage:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  1.6G  955G   1% /
+rootfs          3.9G  2.8M  3.9G   1% /init
+none            3.9G     0  3.9G   0% /dev/shm
+none            3.9G  544K  3.9G   1% /run
+none            3.9G     0  3.9G   0% /run/lock
+none            3.9G   36K  3.9G   1% /run/user
+none            1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none            1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+drivers         931G  583G  348G  63% /usr/lib/wsl/drivers
+none            3.9G     0  3.9G   0% /usr/lib/wsl/lib
+none            3.9G  4.0K  3.9G   1% /mnt/wsl
+none            3.9G   80K  3.9G   1% /mnt/wslg/versions.txt
+none            3.9G   80K  3.9G   1% /mnt/wslg/doc
+none            3.9G     0  3.9G   0% /usr/lib/modules/6.18.33.2-microsoft-standard-WSL2
+tmpfs           3.9G     0  3.9G   0% /tmp
+C:\             931G  583G  348G  63% /mnt/c
+D:\             932G  254G  679G  28% /mnt/d
+none            1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           791M   12K  791M   1% /run/user/1000
+tmpfs           791M   12K  791M   1% /run/user/0
+
+[+] Memory usage:
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       561Mi       6.9Gi       3.5Mi       471Mi       7.2Gi
+Swap:          2.0Gi          0B       2.0Gi
