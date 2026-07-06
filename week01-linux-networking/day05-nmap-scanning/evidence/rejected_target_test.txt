@@ -1,0 +1,2 @@
+[-] Target not allowed for this lab.
+Allowed targets: 127.0.0.1, localhost, scanme.nmap.org

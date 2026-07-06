@@ -1,0 +1,29 @@
+21:59:20.434050 eth0  Out IP [PRIVATE_WSL_IP].41082 > 45.33.32.156.80: Flags [S], seq 1948745834, win 65340, options [mss 1452,sackOK,TS val 3006264858 ecr 0,nop,wscale 10], length 0
+21:59:20.632220 eth0  In  IP 45.33.32.156.80 > [PRIVATE_WSL_IP].41082: Flags [S.], seq 1093910632, ack 1948745835, win 65160, options [mss 1412,sackOK,TS val 2496288908 ecr 3006264858,nop,wscale 7], length 0
+21:59:20.632323 eth0  Out IP [PRIVATE_WSL_IP].41082 > 45.33.32.156.80: Flags [.], ack 1, win 64, options [nop,nop,TS val 3006265056 ecr 2496288908], length 0
+21:59:20.632394 eth0  Out IP [PRIVATE_WSL_IP].41082 > 45.33.32.156.80: Flags [R.], seq 1, ack 1, win 64, options [nop,nop,TS val 3006265056 ecr 2496288908], length 0
+21:59:21.109725 eth0  Out IP [PRIVATE_WSL_IP].40284 > 45.33.32.156.23: Flags [S], seq 307057113, win 65340, options [mss 1452,sackOK,TS val 3414832376 ecr 0,nop,wscale 10], length 0
+21:59:21.304649 eth0  In  IP 45.33.32.156.23 > [PRIVATE_WSL_IP].40284: Flags [R.], seq 0, ack 307057114, win 0, length 0
+21:59:21.509765 eth0  Out IP [PRIVATE_WSL_IP].52764 > 45.33.32.156.25: Flags [S], seq 2012904079, win 65340, options [mss 1452,sackOK,TS val 1569550851 ecr 0,nop,wscale 10], length 0
+21:59:21.705927 eth0  In  IP 45.33.32.156.25 > [PRIVATE_WSL_IP].52764: Flags [R.], seq 0, ack 2012904080, win 0, length 0
+21:59:21.909803 eth0  Out IP [PRIVATE_WSL_IP].41184 > 45.33.32.156.443: Flags [S], seq 3155026618, win 65340, options [mss 1452,sackOK,TS val 1880896483 ecr 0,nop,wscale 10], length 0
+21:59:22.107868 eth0  In  IP 45.33.32.156.443 > [PRIVATE_WSL_IP].41184: Flags [R.], seq 0, ack 3155026619, win 0, length 0
+21:59:22.309129 eth0  Out IP [PRIVATE_WSL_IP].52080 > 45.33.32.156.21: Flags [S], seq 2192989035, win 65340, options [mss 1452,sackOK,TS val 2829217888 ecr 0,nop,wscale 10], length 0
+21:59:22.505401 eth0  In  IP 45.33.32.156.21 > [PRIVATE_WSL_IP].52080: Flags [R.], seq 0, ack 2192989036, win 0, length 0
+21:59:22.709139 eth0  Out IP [PRIVATE_WSL_IP].39912 > 45.33.32.156.139: Flags [S], seq 1542347834, win 65340, options [mss 1452,sackOK,TS val 3437186581 ecr 0,nop,wscale 10], length 0
+21:59:22.908548 eth0  In  IP 45.33.32.156.139 > [PRIVATE_WSL_IP].39912: Flags [R.], seq 0, ack 1542347835, win 0, length 0
+21:59:23.109870 eth0  Out IP [PRIVATE_WSL_IP].38350 > 45.33.32.156.22: Flags [S], seq 3248516229, win 65340, options [mss 1452,sackOK,TS val 3463912309 ecr 0,nop,wscale 10], length 0
+21:59:23.315696 eth0  In  IP 45.33.32.156.22 > [PRIVATE_WSL_IP].38350: Flags [S.], seq 951034461, ack 3248516230, win 65160, options [mss 1412,sackOK,TS val 2496291584 ecr 3463912309,nop,wscale 7], length 0
+21:59:23.315766 eth0  Out IP [PRIVATE_WSL_IP].38350 > 45.33.32.156.22: Flags [.], ack 1, win 64, options [nop,nop,TS val 3463912515 ecr 2496291584], length 0
+21:59:23.315816 eth0  Out IP [PRIVATE_WSL_IP].38350 > 45.33.32.156.22: Flags [R.], seq 1, ack 1, win 64, options [nop,nop,TS val 3463912515 ecr 2496291584], length 0
+21:59:23.509945 eth0  Out IP [PRIVATE_WSL_IP].41094 > 45.33.32.156.80: Flags [S], seq 2325467020, win 65340, options [mss 1452,sackOK,TS val 3479114704 ecr 0,nop,wscale 10], length 0
+21:59:23.708155 eth0  In  IP 45.33.32.156.80 > [PRIVATE_WSL_IP].41094: Flags [S.], seq 4060154855, ack 2325467021, win 65160, options [mss 1412,sackOK,TS val 2496291983 ecr 3479114704,nop,wscale 7], length 0
+21:59:23.708194 eth0  Out IP [PRIVATE_WSL_IP].41094 > 45.33.32.156.80: Flags [.], ack 1, win 64, options [nop,nop,TS val 3479114902 ecr 2496291983], length 0
+21:59:23.708241 eth0  Out IP [PRIVATE_WSL_IP].41094 > 45.33.32.156.80: Flags [R.], seq 1, ack 1, win 64, options [nop,nop,TS val 3479114902 ecr 2496291983], length 0
+21:59:23.909936 eth0  Out IP [PRIVATE_WSL_IP].41946 > 45.33.32.156.445: Flags [S], seq 1914678637, win 65340, options [mss 1452,sackOK,TS val 2827645726 ecr 0,nop,wscale 10], length 0
+21:59:24.105664 eth0  In  IP 45.33.32.156.445 > [PRIVATE_WSL_IP].41946: Flags [R.], seq 0, ack 1914678638, win 0, length 0
+21:59:24.309980 eth0  Out IP [PRIVATE_WSL_IP].49412 > 45.33.32.156.110: Flags [S], seq 4072300351, win 65340, options [mss 1452,sackOK,TS val 954137175 ecr 0,nop,wscale 10], length 0
+21:59:24.512244 eth0  In  IP 45.33.32.156.110 > [PRIVATE_WSL_IP].49412: Flags [R.], seq 0, ack 4072300352, win 0, length 0
+21:59:24.710072 eth0  Out IP [PRIVATE_WSL_IP].38504 > 45.33.32.156.3389: Flags [S], seq 2086462605, win 65340, options [mss 1452,sackOK,TS val 3902928718 ecr 0,nop,wscale 10], length 0
+21:59:24.907839 eth0  In  IP 45.33.32.156.3389 > [PRIVATE_WSL_IP].38504: Flags [R.], seq 0, ack 2086462606, win 0, length 0
+
