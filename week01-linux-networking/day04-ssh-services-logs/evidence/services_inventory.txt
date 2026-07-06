@@ -1,0 +1,78 @@
+=== systemctl running services ===
+  UNIT                        LOAD   ACTIVE SUB     DESCRIPTION
+  chrony.service              loaded active running chrony, an NTP client/server
+  cron.service                loaded active running Regular background program processing daemon
+  dbus.service                loaded active running D-Bus System Message Bus
+  getty@tty1.service          loaded active running Getty on tty1
+  networkd-dispatcher.service loaded active running Dispatcher daemon for systemd-networkd
+  polkit.service              loaded active running Authorization Manager
+  rsyslog.service             loaded active running System Logging Service
+  systemd-journald.service    loaded active running Journal Service
+  systemd-logind.service      loaded active running User Login Management
+  systemd-resolved.service    loaded active running Network Name Resolution
+  systemd-udevd.service       loaded active running Rule-based Manager for Device Events and Files
+  unattended-upgrades.service loaded active running Unattended Upgrades Shutdown
+  user@1000.service           loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+13 loaded units listed.
+
+=== service --status-all ===
+ [ - ]  apparmor
+ [ - ]  apport
+ [ + ]  chrony
+ [ - ]  console-setup.sh
+ [ + ]  cron
+ [ + ]  dbus
+ [ - ]  keyboard-setup.sh
+ [ + ]  procps
+ [ - ]  rsync
+ [ - ]  screen-cleanup
+ [ + ]  unattended-upgrades
+ [ - ]  x11-common
+
+=== ps aux top 30 ===
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0  24668 15856 ?        Ss   17:37   0:01 /sbin/init
+root           2  0.0  0.0   3180  2208 hvc0     Sl+  17:37   0:00 /init
+root           6  0.0  0.0   3212  2140 hvc0     Sl+  17:37   0:00 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root          56  0.0  0.1  50416 17108 ?        S<s  17:37   0:00 /usr/lib/systemd/systemd-journald
+systemd+      90  0.0  0.0  22540 14636 ?        Ss   17:37   0:00 /usr/lib/systemd/systemd-resolved
+root          97  0.0  0.0  35584 12564 ?        Ss   17:37   0:00 /usr/lib/systemd/systemd-udevd
+root         159  0.0  0.0   2888  2008 ?        Ss   17:37   0:00 /bin/sh /usr/lib/systemd/scripts/chronyd-starter.sh -n -F 1
+root         165  0.0  0.0   4472  3176 ?        Ss   17:37   0:00 /usr/sbin/cron -f -P
+message+     171  0.0  0.0   9068  5792 ?        Ss   17:37   0:00 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         187  0.0  0.1  44092 29836 ?        Ss   17:37   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         192  0.0  0.0  18604  9496 ?        Ss   17:37   0:00 /usr/lib/systemd/systemd-logind
+syslog       198  0.0  0.0 220548  5740 ?        Ssl  17:37   0:00 /usr/sbin/rsyslogd -n -iNONE
+_chrony      245  0.0  0.0  24388 11872 ?        S    17:37   0:00 /usr/sbin/chronyd -n -F 1 -x
+_chrony      247  0.0  0.0  12092  2468 ?        S    17:37   0:00 /usr/sbin/chronyd -n -F 1 -x
+root         295  0.0  0.2 123456 32620 ?        Ssl  17:37   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         349  0.0  0.0   5492  2792 tty1     Ss+  17:37   0:00 /usr/sbin/agetty --noreset --noclear --issue-file=/etc/issue:/etc/issue.d:/run/issue.d:/usr/lib/issue.d - linux
+root         424  0.0  0.0   3188  1112 ?        Ss   17:37   0:00 /init
+root         425  0.0  0.0   3204  1248 ?        S    17:37   0:00 /init
+[LOCAL_USER]        426  0.0  0.0   6212  5540 pts/0    Ss   17:37   0:00 /bin/bash
+[LOCAL_USER]        593  0.0  0.0  22676 13648 ?        Ss   17:38   0:00 /usr/lib/systemd/systemd --user
+[LOCAL_USER]        595  0.0  0.0  22908  4088 ?        S    17:38   0:00 (sd-pam)
+root         707  0.0  0.0   8652  5612 ?        Ss   17:38   0:00 login -- [LOCAL_USER]
+[LOCAL_USER]        753  0.0  0.0   6136  5476 pts/1    Ss+  17:38   0:00 -bash
+polkitd      873  0.0  0.0 380176  8544 ?        Ssl  17:38   0:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+[LOCAL_USER]       2894  0.0  0.0   8544  5068 ?        Ss   17:39   0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+[LOCAL_USER]       9097  0.0  0.0   7160  4404 pts/0    R+   18:33   0:00 ps aux
+[LOCAL_USER]       9098  0.0  0.0  16304  7876 pts/0    S+   18:33   0:00 head -30
+
+=== listening ports ===
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess                                                                            
+udp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*           uid:989 ino:13427 sk:1001 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:13425 sk:1002 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0      [LOCAL_DNS_RESOLVER]:53        0.0.0.0:*           ino:8205 sk:1003 cgroup:/ <->                                              
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:10464 sk:1004 cgroup:/system.slice/chrony.service <->                  
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:9224 sk:1005 cgroup:/ <->                                              
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:9225 sk:2001 cgroup:/ v6only:1 <->                                     
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:10465 sk:2002 cgroup:/system.slice/chrony.service v6only:1 <->         
+tcp   LISTEN 0      1000   [LOCAL_DNS_RESOLVER]:53        0.0.0.0:*           ino:8206 sk:1 cgroup:/ <->                                                 
+tcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:13426 sk:2 cgroup:/system.slice/systemd-resolved.service <->   
+tcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*           uid:989 ino:13428 sk:3 cgroup:/system.slice/systemd-resolved.service <->   

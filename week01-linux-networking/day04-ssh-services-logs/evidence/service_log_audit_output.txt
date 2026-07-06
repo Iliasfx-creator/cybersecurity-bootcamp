@@ -1,0 +1,59 @@
+=== Service and Log Quick Audit ===
+
+[+] Current user:
+[LOCAL_USER]
+
+[+] Hostname:
+[LOCAL_HOST]
+
+[+] Listening ports:
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess                                                                            
+udp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*           uid:989 ino:37472 sk:3003 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:37470 sk:3004 cgroup:/system.slice/systemd-resolved.service <->
+udp   UNCONN 0      0      [LOCAL_DNS_RESOLVER]:53        0.0.0.0:*           ino:8205 sk:1003 cgroup:/ <->                                              
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:42522 sk:3005 cgroup:/system.slice/chrony.service <->                  
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*           ino:9224 sk:1005 cgroup:/ <->                                              
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:9225 sk:2001 cgroup:/ v6only:1 <->                                     
+udp   UNCONN 0      0               [::1]:323          [::]:*           ino:42523 sk:3006 cgroup:/system.slice/chrony.service v6only:1 <->         
+tcp   LISTEN 0      1000   [LOCAL_DNS_RESOLVER]:53        0.0.0.0:*           ino:8206 sk:1 cgroup:/ <->                                                 
+tcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:37471 sk:3001 cgroup:/system.slice/systemd-resolved.service <->
+tcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*           uid:989 ino:37473 sk:3002 cgroup:/system.slice/systemd-resolved.service <->
+
+[+] Top processes:
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         238  0.2  0.2 123460 32600 ?        Ssl  18:45   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         153  0.3  0.1  44096 29828 ?        Ss   18:45   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root          46  0.3  0.1  42232 16528 ?        S<s  18:45   0:00 /usr/lib/systemd/systemd-journald
+root         182  0.1  0.0 1865520 15452 ?       Ssl  18:45   0:00 /usr/libexec/wsl-pro-service
+root           1  1.1  0.0  24128 15392 ?        Ss   18:45   0:00 /sbin/init
+systemd+      81  0.1  0.0  22416 14516 ?        Ss   18:45   0:00 /usr/lib/systemd/systemd-resolved
+[LOCAL_USER]        379  0.2  0.0  22748 13280 ?        Ss   18:45   0:00 /usr/lib/systemd/systemd --user
+root          88  0.4  0.0  35516 12600 ?        Ss   18:45   0:00 /usr/lib/systemd/systemd-udevd
+root         172  0.1  0.0  18440  9424 ?        Ss   18:45   0:00 /usr/lib/systemd/systemd-logind
+_chrony      225  0.0  0.0  20424  7832 ?        S    18:45   0:00 /usr/sbin/chronyd -n -F 1 -x
+[LOCAL_USER]        492  0.0  0.0  16304  7808 pts/0    S+   18:46   0:00 head -15
+[LOCAL_USER]        337  0.0  0.0   6268  5656 pts/0    Ss   18:45   0:00 -bash
+root         338  0.0  0.0   8648  5588 ?        Ss   18:45   0:00 login -- [LOCAL_USER]
+[LOCAL_USER]        408  0.0  0.0   6136  5492 pts/1    Ss+  18:45   0:00 -bash
+
+[+] Recent auth logs:
+2026-07-06T18:17:01.909488+03:00 [LOCAL_HOST] CRON[8882]: pam_unix(cron:session): session closed for user root
+2026-07-06T18:36:26.655129+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:36:26.706589+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/ls -l /var/log/auth.log
+2026-07-06T18:36:26.706835+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T18:36:26.707851+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:36:26.708154+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/tail -50 /var/log/auth.log
+2026-07-06T18:36:26.710991+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T18:36:26.730517+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:36:26.738881+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/journalctl -n 50
+2026-07-06T18:36:26.747888+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T18:45:09.556386+03:00 [LOCAL_HOST] systemd-logind[192]: The system will power off now!
+2026-07-06T18:45:09.592138+03:00 [LOCAL_HOST] systemd-logind[192]: System is powering down.
+2026-07-06T18:45:09.601135+03:00 [LOCAL_HOST] login: pam_unix(login:session): session closed for user [LOCAL_USER]
+2026-07-06T18:45:18.744958+03:00 [LOCAL_HOST] systemd-logind[172]: New seat seat0.
+2026-07-06T18:45:20.084318+03:00 [LOCAL_HOST] login: pam_unix(login:session): session opened for user [LOCAL_USER](uid=1000) by [LOCAL_USER](uid=0)
+2026-07-06T18:45:20.093629+03:00 [LOCAL_HOST] systemd-logind[172]: New session 'c1' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T18:45:20.172685+03:00 [LOCAL_HOST] (systemd): pam_unix(systemd-user:session): session opened for user [LOCAL_USER](uid=1000) by [LOCAL_USER](uid=0)
+2026-07-06T18:45:20.174771+03:00 [LOCAL_HOST] systemd-logind[172]: New session 'c2' of user '[LOCAL_USER]' with class 'manager' and type 'unspecified'.
+2026-07-06T18:46:23.933132+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:46:23.933894+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/tail -20 /var/log/auth.log

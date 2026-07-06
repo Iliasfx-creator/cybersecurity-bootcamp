@@ -1,0 +1,108 @@
+=== auth.log check ===
+-rw-r----- 1 syslog adm 8528 Jul  6 18:36 /var/log/auth.log
+
+=== auth.log last 50 ===
+2026-07-06T16:58:40.308844+03:00 [LOCAL_HOST] su[589]: pam_unix(su:session): session closed for user [LOCAL_USER]
+2026-07-06T16:58:40.310803+03:00 [LOCAL_HOST] systemd-logind[192]: Session c3 logged out. Waiting for processes to exit.
+2026-07-06T16:58:40.314296+03:00 [LOCAL_HOST] su[630]: (to [LOCAL_USER]) root on pts/0
+2026-07-06T16:58:40.314993+03:00 [LOCAL_HOST] su[630]: pam_unix(su:session): session opened for user [LOCAL_USER](uid=1000) by (uid=0)
+2026-07-06T16:58:40.317346+03:00 [LOCAL_HOST] systemd-logind[192]: New session 'c5' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T16:58:40.319284+03:00 [LOCAL_HOST] systemd-logind[192]: Removed session c3.
+2026-07-06T16:58:40.324727+03:00 [LOCAL_HOST] su[630]: pam_unix(su:session): session closed for user [LOCAL_USER]
+2026-07-06T16:58:40.326737+03:00 [LOCAL_HOST] systemd-logind[192]: Session c5 logged out. Waiting for processes to exit.
+2026-07-06T16:58:40.330616+03:00 [LOCAL_HOST] su[647]: (to [LOCAL_USER]) root on pts/0
+2026-07-06T16:58:40.331739+03:00 [LOCAL_HOST] systemd-logind[192]: Removed session c5.
+2026-07-06T16:58:40.331858+03:00 [LOCAL_HOST] su[647]: pam_unix(su:session): session opened for user [LOCAL_USER](uid=1000) by (uid=0)
+2026-07-06T16:58:40.333815+03:00 [LOCAL_HOST] systemd-logind[192]: New session 'c6' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T16:58:40.340883+03:00 [LOCAL_HOST] su[647]: pam_unix(su:session): session closed for user [LOCAL_USER]
+2026-07-06T16:58:40.342856+03:00 [LOCAL_HOST] systemd-logind[192]: Session c6 logged out. Waiting for processes to exit.
+2026-07-06T16:58:40.354959+03:00 [LOCAL_HOST] systemd-logind[192]: Removed session c6.
+2026-07-06T16:58:40.653689+03:00 [LOCAL_HOST] su[660]: (to [LOCAL_USER]) root on pts/0
+2026-07-06T16:58:40.654324+03:00 [LOCAL_HOST] su[660]: pam_unix(su:session): session opened for user [LOCAL_USER](uid=1000) by (uid=0)
+2026-07-06T16:58:40.656439+03:00 [LOCAL_HOST] systemd-logind[192]: New session 'c7' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T16:58:40.948789+03:00 [LOCAL_HOST] su[660]: pam_unix(su:session): session closed for user [LOCAL_USER]
+2026-07-06T16:58:40.951499+03:00 [LOCAL_HOST] systemd-logind[192]: Session c7 logged out. Waiting for processes to exit.
+2026-07-06T16:58:40.952165+03:00 [LOCAL_HOST] systemd-logind[192]: Removed session c7.
+2026-07-06T16:58:40.953641+03:00 [LOCAL_HOST] su[701]: (to [LOCAL_USER]) root on pts/0
+2026-07-06T16:58:40.954277+03:00 [LOCAL_HOST] su[701]: pam_unix(su:session): session opened for user [LOCAL_USER](uid=1000) by (uid=0)
+2026-07-06T16:58:40.956262+03:00 [LOCAL_HOST] systemd-logind[192]: New session 'c8' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T16:58:40.985852+03:00 [LOCAL_HOST] su[701]: pam_unix(su:session): session closed for user [LOCAL_USER]
+2026-07-06T16:58:40.987969+03:00 [LOCAL_HOST] systemd-logind[192]: Session c8 logged out. Waiting for processes to exit.
+2026-07-06T16:58:41.242727+03:00 [LOCAL_HOST] login: pam_unix(login:session): session opened for user [LOCAL_USER](uid=1000) by [LOCAL_USER](uid=0)
+2026-07-06T16:58:41.245168+03:00 [LOCAL_HOST] systemd-logind[192]: New session 'c9' of user '[LOCAL_USER]' with class 'user' and type 'tty'.
+2026-07-06T16:58:41.386282+03:00 [LOCAL_HOST] systemd-logind[192]: Removed session c8.
+2026-07-06T16:59:27.919823+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T16:59:27.919994+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/mnt/c/windows/system32 ; USER=root ; COMMAND=/usr/bin/apt update
+2026-07-06T16:59:32.785465+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T16:59:32.791013+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T16:59:32.791085+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/mnt/c/windows/system32 ; USER=root ; COMMAND=/usr/bin/apt upgrade -y
+2026-07-06T16:59:45.431914+03:00 [LOCAL_HOST] (systemd-stdio-bridge): pam_unix(login:session): session opened for user [LOCAL_USER](uid=1000) by [LOCAL_USER](uid=0)
+2026-07-06T16:59:45.538235+03:00 [LOCAL_HOST] (sd-pam): pam_unix(login:session): session closed for user [LOCAL_USER]
+2026-07-06T16:59:55.946509+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T16:59:55.952676+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T16:59:55.952751+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/mnt/c/windows/system32 ; USER=root ; COMMAND=/usr/bin/apt install -y git curl wget nano vim tree iproute2 iputils-ping traceroute dnsutils tcpdump tshark net-tools gh
+2026-07-06T17:00:20.853201+03:00 [LOCAL_HOST] groupadd[8530]: group added to /etc/group: name=rdma, GID=106
+2026-07-06T17:00:20.856431+03:00 [LOCAL_HOST] groupadd[8530]: group added to /etc/gshadow: name=rdma
+2026-07-06T17:00:20.857103+03:00 [LOCAL_HOST] groupadd[8530]: new group: name=rdma, GID=106
+2026-07-06T17:00:23.200732+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T17:17:02.031323+03:00 [LOCAL_HOST] CRON[8800]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-06T17:17:02.043968+03:00 [LOCAL_HOST] CRON[8800]: pam_unix(cron:session): session closed for user root
+2026-07-06T18:17:01.906336+03:00 [LOCAL_HOST] CRON[8882]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-06T18:17:01.909488+03:00 [LOCAL_HOST] CRON[8882]: pam_unix(cron:session): session closed for user root
+2026-07-06T18:36:26.655129+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:36:26.706589+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/ls -l /var/log/auth.log
+2026-07-06T18:36:26.706835+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session closed for user root
+2026-07-06T18:36:26.707851+03:00 [LOCAL_HOST] sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+2026-07-06T18:36:26.708154+03:00 [LOCAL_HOST] sudo: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/tail -50 /var/log/auth.log
+
+=== journalctl last 50 ===
+Jul 06 17:15:07 [LOCAL_HOST] chronyd[245]: Selected source 185.125.190.122 (1.ntp.ubuntu.com)
+Jul 06 17:17:02 [LOCAL_HOST] CRON[8800]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Jul 06 17:17:02 [LOCAL_HOST] CRON[8802]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
+Jul 06 17:17:02 [LOCAL_HOST] CRON[8800]: pam_unix(cron:session): session closed for user root
+Jul 06 17:27:45 [LOCAL_HOST] systemd-resolved[90]: Clock change detected. Flushing caches.
+Jul 06 17:31:47 [LOCAL_HOST] systemd-resolved[90]: Clock change detected. Flushing caches.
+Jul 06 17:32:04 [LOCAL_HOST] chronyd[245]: Forward time jump detected!
+Jul 06 17:32:04 [LOCAL_HOST] chronyd[245]: Can't synchronise: no selectable sources (0 unreachable sources)
+Jul 06 17:34:14 [LOCAL_HOST] chronyd[245]: Selected source 185.125.190.123 (2.ntp.ubuntu.com)
+Jul 06 17:41:28 [LOCAL_HOST] systemd[1]: wsl-pro.service: Scheduled restart job, restart counter is at 1.
+Jul 06 17:41:28 [LOCAL_HOST] systemd[1]: Starting wsl-pro.service - Bridge to Ubuntu Pro agent on Windows...
+Jul 06 17:41:28 [LOCAL_HOST] wsl-pro-service[8824]: INFO Starting WSL Pro Service version wsl-pro-service/0.1.19
+Jul 06 17:41:28 [LOCAL_HOST] systemd[1]: Started wsl-pro.service - Bridge to Ubuntu Pro agent on Windows.
+Jul 06 17:41:29 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:41:30 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:41:32 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:41:36 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:41:44 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:42:00 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:42:32 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:43:32 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 17:48:38 [LOCAL_HOST] systemd-resolved[90]: Clock change detected. Flushing caches.
+Jul 06 17:48:43 [LOCAL_HOST] unknown: WSL (218) ERROR: CheckConnection: getaddrinfo() failed: -5
+Jul 06 17:48:43 [LOCAL_HOST] kernel: hv_utils: TimeSync IC version 4.0
+Jul 06 18:11:08 [LOCAL_HOST] systemd-resolved[90]: Clock change detected. Flushing caches.
+Jul 06 18:11:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:11:50 [LOCAL_HOST] chronyd[245]: Forward time jump detected!
+Jul 06 18:11:50 [LOCAL_HOST] chronyd[245]: Can't synchronise: no selectable sources (0 unreachable sources)
+Jul 06 18:12:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:13:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:14:00 [LOCAL_HOST] chronyd[245]: Selected source 185.125.190.123 (2.ntp.ubuntu.com)
+Jul 06 18:14:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:15:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:16:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:17:01 [LOCAL_HOST] CRON[8882]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Jul 06 18:17:01 [LOCAL_HOST] CRON[8884]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
+Jul 06 18:17:01 [LOCAL_HOST] CRON[8882]: pam_unix(cron:session): session closed for user root
+Jul 06 18:17:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:18:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:19:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "[WINDOWS_AGENT_ADDRESS_FILE]": open [WINDOWS_AGENT_ADDRESS_FILE]: no such file or directory
+Jul 06 18:19:22 [LOCAL_HOST] wsl-pro-service[8824]: WARNING Exiting after <nil>: check if the Windows agent is installed and running.
+Jul 06 18:19:22 [LOCAL_HOST] systemd[1]: wsl-pro.service: Deactivated successfully.
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9117]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9117]: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/ls -l /var/log/auth.log
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9117]: pam_unix(sudo:session): session closed for user root
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9122]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9122]: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/tail -50 /var/log/auth.log
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9122]: pam_unix(sudo:session): session closed for user root
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9126]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jul 06 18:36:26 [LOCAL_HOST] sudo[9126]: [LOCAL_USER] : TTY=/dev/pts/0 ; PWD=/home/[LOCAL_USER]/cybersecurity-bootcamp ; USER=root ; COMMAND=/usr/bin/journalctl -n 50

@@ -1,0 +1,9 @@
+=== SSH directory listing ===
+total 16
+drwx------ 2 [LOCAL_USER] [LOCAL_USER] 4096 Jul  6 18:29 .
+drwxr-x--- 7 [LOCAL_USER] [LOCAL_USER] 4096 Jul  6 18:28 ..
+-rw------- 1 [LOCAL_USER] [LOCAL_USER]  411 Jul  6 18:29 cyber_bootcamp_ed25519_PRIVATE_KEY_REDACTED
+-rw-r--r-- 1 [LOCAL_USER] [LOCAL_USER]  100 Jul  6 18:29 cyber_bootcamp_ed25519_PRIVATE_KEY_REDACTED.pub
+
+=== Public key fingerprint ===
+256 SHA256:65tn38v8ftb/vtUEiLyl4irv3/9gZihQozqjn4ol+og cyber-bootcamp-key (ED25519)
