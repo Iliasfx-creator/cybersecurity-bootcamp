@@ -1,0 +1,25 @@
+14:13:52.175657 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [S], seq 1121679762, win 65340, options [mss 1452,sackOK,TS val 1677954377 ecr 0,nop,wscale 10], length 0
+14:13:52.189587 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [S.], seq 3932193099, ack 1121679763, win 65535, options [mss 1400,sackOK,TS val 2905564510 ecr 1677954377,nop,wscale 13], length 0
+14:13:52.189626 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [.], ack 1, win 64, options [nop,nop,TS val 1677954391 ecr 2905564510], length 0
+14:13:52.191064 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1:1572, ack 1, win 64, options [nop,nop,TS val 1677954393 ecr 2905564510], length 1571
+14:13:52.206306 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], ack 787, win 16, options [nop,nop,TS val 2905564526 ecr 1677954393], length 0
+14:13:52.206306 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], ack 1572, win 16, options [nop,nop,TS val 2905564526 ecr 1677954393], length 0
+14:13:52.209118 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], seq 1:2801, ack 1572, win 16, options [nop,nop,TS val 2905564528 ecr 1677954393], length 2800
+14:13:52.209151 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [.], ack 2801, win 70, options [nop,nop,TS val 1677954411 ecr 2905564528], length 0
+14:13:52.209820 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [P.], seq 2801:5081, ack 1572, win 16, options [nop,nop,TS val 2905564528 ecr 1677954393], length 2280
+14:13:52.209858 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [.], ack 5081, win 74, options [nop,nop,TS val 1677954412 ecr 2905564528], length 0
+14:13:52.211386 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1572:1652, ack 5081, win 74, options [nop,nop,TS val 1677954413 ecr 2905564528], length 80
+14:13:52.211453 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1652:1780, ack 5081, win 74, options [nop,nop,TS val 1677954413 ecr 2905564528], length 128
+14:13:52.211604 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1780:1828, ack 5081, win 74, options [nop,nop,TS val 1677954413 ecr 2905564528], length 48
+14:13:52.225437 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], ack 1828, win 16, options [nop,nop,TS val 2905564546 ecr 1677954413], length 0
+14:13:52.225437 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [P.], seq 5081:5634, ack 1828, win 16, options [nop,nop,TS val 2905564546 ecr 1677954413], length 553
+14:13:52.225651 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1828:1859, ack 5634, win 77, options [nop,nop,TS val 1677954427 ecr 2905564546], length 31
+14:13:52.229900 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [P.], seq 5634:5792, ack 1828, win 16, options [nop,nop,TS val 2905564550 ecr 1677954413], length 158
+14:13:52.230089 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1859:1907, ack 5792, win 80, options [nop,nop,TS val 1677954432 ecr 2905564550], length 48
+14:13:52.230183 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [P.], seq 1907:1931, ack 5792, win 80, options [nop,nop,TS val 1677954432 ecr 2905564550], length 24
+14:13:52.230594 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [F.], seq 1931, ack 5792, win 80, options [nop,nop,TS val 1677954432 ecr 2905564550], length 0
+14:13:52.243576 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], ack 1907, win 16, options [nop,nop,TS val 2905564564 ecr 1677954427], length 0
+14:13:52.244167 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [F.], seq 5792, ack 1931, win 16, options [nop,nop,TS val 2905564564 ecr 1677954432], length 0
+14:13:52.244178 eth0  Out IP [PRIVATE_WSL_IP].40874 > 104.20.23.154.443: Flags [.], ack 5793, win 80, options [nop,nop,TS val 1677954446 ecr 2905564564], length 0
+14:13:52.245336 eth0  In  IP 104.20.23.154.443 > [PRIVATE_WSL_IP].40874: Flags [.], ack 1932, win 16, options [nop,nop,TS val 2905564566 ecr 1677954432], length 0
+
