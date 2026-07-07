@@ -1,0 +1,69 @@
+=== GET / ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:45:20 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <head><title>Tiny Backend App</title></head>
+                <body>
+                    <h1>Tiny Backend App</h1>
+
+                    <h2>Search</h2>
+                    <form method="GET" action="/search">
+                        <input type="text" name="q" value="test">
+                        <button type="submit">Search</button>
+                    </form>
+
+                    <h2>Login</h2>
+                    <form method="POST" action="/login">
+                        <input type="text" name="username" value="student">
+                        <input type="password" name="password" value="REDACTED">
+                        <button type="submit">Login</button>
+                    </form>
+                </body>
+            </html>
+            
+=== GET /search?q=test ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:45:20 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Search Results</h1>
+                    <p>You searched for: test</p>
+                </body>
+            </html>
+            
+=== GET /search?q=hello ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:45:20 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Search Results</h1>
+                    <p>You searched for: hello</p>
+                </body>
+            </html>
+            
+=== POST /login valid ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:45:20 GMT
+Content-Type: text/html; charset=utf-8
+
+<h1>Login successful</h1>
+=== POST /login invalid ===
+HTTP/1.0 401 Unauthorized
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:45:20 GMT
+Content-Type: text/html; charset=utf-8
+
+<h1>Login failed</h1>

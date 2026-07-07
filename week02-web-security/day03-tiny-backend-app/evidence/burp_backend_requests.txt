@@ -1,0 +1,36 @@
+=== Captured GET / ===
+
+GET / HTTP/1.1
+Host: 127.0.0.1:8001
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Captured GET /search?q=test ===
+
+GET /search?q=test HTTP/1.1
+Host: 127.0.0.1:8001
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Modified GET /search ===
+
+GET /search?q=modified-by-burp HTTP/1.1
+Host: 127.0.0.1:8001
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Captured POST /login valid ===
+
+POST /login HTTP/1.1
+Host: 127.0.0.1:8001
+Content-Type: application/x-www-form-urlencoded
+
+username=student&password=REDACTED
+
+=== Captured POST /login invalid ===
+
+POST /login HTTP/1.1
+Host: 127.0.0.1:8001
+Content-Type: application/x-www-form-urlencoded
+
+username=student&password=wrong
