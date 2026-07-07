@@ -1,0 +1,62 @@
+=== HTTP Probe ===
+[+] Target: http://127.0.0.1:8000
+
+[+] Response headers:
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0    374   0      0   0      0      0      0                              0  0    374   0      0   0      0      0      0                              0  0    374   0      0   0      0      0      0                              0
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 08:06:18 GMT
+Content-type: text/html
+Content-Length: 374
+Last-Modified: Tue, 07 Jul 2026 07:45:37 GMT
+
+
+[+] GET response preview:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Bootcamp Local Site</title>
+</head>
+<body>
+    <h1>Cyber Bootcamp Local Site</h1>
+    <p>This is a simple local website for HTTP analysis.</p>
+
+    <form method="GET" action="/search">
+        <label>Search:</label>
+        <input type="text" name="q">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+[+] OPTIONS response:
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100    485 100    485   0      0 569.9k      0                              0100    485 100    485   0      0 546.2k      0                              0100    485 100    485   0      0 528.6k      0                              0
+HTTP/1.0 501 Unsupported method ('OPTIONS')
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 08:06:18 GMT
+Connection: close
+Content-Type: text/html;charset=utf-8
+Content-Length: 485
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+        </style>
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 501</p>
+        <p>Message: Unsupported method ('OPTIONS').</p>
+        <p>Error code explanation: 501 - Server does not support this operation.</p>
+    </body>
+</html>

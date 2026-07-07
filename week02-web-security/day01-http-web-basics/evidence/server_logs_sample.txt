@@ -1,0 +1,10 @@
+127.0.0.1 - - [07/Jul/2026 11:08:22] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] code 404, message File not found
+127.0.0.1 - - [07/Jul/2026 11:08:22] "GET /search?q=test HTTP/1.1" 404 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] code 501, message Unsupported method ('POST')
+127.0.0.1 - - [07/Jul/2026 11:08:22] "POST / HTTP/1.1" 501 -
+127.0.0.1 - - [07/Jul/2026 11:08:22] code 501, message Unsupported method ('OPTIONS')
+127.0.0.1 - - [07/Jul/2026 11:08:22] "OPTIONS / HTTP/1.1" 501 -

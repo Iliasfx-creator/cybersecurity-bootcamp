@@ -1,0 +1,46 @@
+=== HEAD request ===
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 07:47:12 GMT
+Content-type: text/html
+Content-Length: 374
+Last-Modified: Tue, 07 Jul 2026 07:45:37 GMT
+
+
+=== GET index ===
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Bootcamp Local Site</title>
+</head>
+<body>
+    <h1>Cyber Bootcamp Local Site</h1>
+    <p>This is a simple local website for HTTP analysis.</p>
+
+    <form method="GET" action="/search">
+        <label>Search:</label>
+        <input type="text" name="q">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+=== GET search query ===
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+        </style>
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: File not found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
