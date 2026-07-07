@@ -1,0 +1,28 @@
+=== Captured GET request ===
+
+GET / HTTP/1.1
+Host: 127.0.0.1:8000
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Captured search request ===
+
+GET /search?q=test HTTP/1.1
+Host: 127.0.0.1:8000
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Modified search request ===
+
+GET /search?q=modified-by-burp HTTP/1.1
+Host: 127.0.0.1:8000
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+=== Captured POST request ===
+
+POST /login HTTP/1.1
+Host: 127.0.0.1:8000
+Content-Type: application/x-www-form-urlencoded
+
+username=student&password=REDACTED

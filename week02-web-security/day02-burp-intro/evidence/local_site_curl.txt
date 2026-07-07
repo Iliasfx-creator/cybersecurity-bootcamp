@@ -1,0 +1,86 @@
+=== curl local page ===
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:20:27 GMT
+Content-type: text/html
+Content-Length: 689
+Last-Modified: Tue, 07 Jul 2026 14:19:48 GMT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Burp Local Test Site</title>
+</head>
+<body>
+    <h1>Burp Local Test Site</h1>
+    <p>This page is used to observe HTTP requests through Burp Proxy.</p>
+
+    <form method="GET" action="/search">
+        <label>Search query:</label>
+        <input type="text" name="q" value="test">
+        <button type="submit">Search</button>
+    </form>
+
+    <form method="POST" action="/login">
+        <label>Username:</label>
+        <input type="text" name="username" value="student">
+        <label>Password:</label>
+        <input type="password" name="password" value="REDACTED">
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+
+=== curl search ===
+HTTP/1.0 404 File not found
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:20:27 GMT
+Connection: close
+Content-Type: text/html;charset=utf-8
+Content-Length: 460
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+        </style>
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+        <p>Message: File not found.</p>
+        <p>Error code explanation: 404 - Nothing matches the given URI.</p>
+    </body>
+</html>
+
+=== curl login POST ===
+HTTP/1.0 501 Unsupported method ('POST')
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Tue, 07 Jul 2026 14:20:27 GMT
+Connection: close
+Content-Type: text/html;charset=utf-8
+Content-Length: 482
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+        </style>
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 501</p>
+        <p>Message: Unsupported method ('POST').</p>
+        <p>Error code explanation: 501 - Server does not support this operation.</p>
+    </body>
+</html>
