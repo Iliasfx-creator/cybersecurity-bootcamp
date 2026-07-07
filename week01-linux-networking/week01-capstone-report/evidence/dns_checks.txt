@@ -1,0 +1,23 @@
+=== DNS github.com ===
+Server:		[LOCAL_DNS_RESOLVER]
+Address:	[LOCAL_DNS_RESOLVER]#53
+
+Non-authoritative answer:
+Name:	github.com
+Address: 140.82.121.3
+
+
+=== DNS overthewire.org ===
+Server:		[LOCAL_DNS_RESOLVER]
+Address:	[LOCAL_DNS_RESOLVER]#53
+
+Non-authoritative answer:
+Name:	overthewire.org
+Address: 104.21.46.149
+Name:	overthewire.org
+Address: 172.67.140.53
+Name:	overthewire.org
+Address: 2606:4700:3033::6815:2e95
+Name:	overthewire.org
+Address: 2606:4700:3035::ac43:8c35
+
