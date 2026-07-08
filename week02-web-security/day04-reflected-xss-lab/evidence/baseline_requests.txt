@@ -1,0 +1,54 @@
+=== GET / ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Wed, 08 Jul 2026 08:03:39 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <head><title>Reflected XSS Lab</title></head>
+                <body>
+                    <h1>Reflected XSS Lab</h1>
+
+                    <h2>Vulnerable Search</h2>
+                    <form method="GET" action="/vuln-search">
+                        <input type="text" name="q" value="test">
+                        <button type="submit">Search vulnerable</button>
+                    </form>
+
+                    <h2>Safe Search</h2>
+                    <form method="GET" action="/safe-search">
+                        <input type="text" name="q" value="test">
+                        <button type="submit">Search safe</button>
+                    </form>
+                </body>
+            </html>
+            
+=== Vulnerable normal search ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Wed, 08 Jul 2026 08:03:39 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Vulnerable Search Results</h1>
+                    <p>You searched for: test</p>
+                </body>
+            </html>
+            
+=== Safe normal search ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Wed, 08 Jul 2026 08:03:39 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Safe Search Results</h1>
+                    <p>You searched for: test</p>
+                </body>
+            </html>
+            

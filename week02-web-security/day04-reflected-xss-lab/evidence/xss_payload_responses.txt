@@ -1,0 +1,28 @@
+=== Vulnerable XSS payload ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Wed, 08 Jul 2026 08:03:47 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Vulnerable Search Results</h1>
+                    <p>You searched for: <script>alert(1)</script></p>
+                </body>
+            </html>
+            
+=== Safe XSS payload ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Wed, 08 Jul 2026 08:03:47 GMT
+Content-Type: text/html; charset=utf-8
+
+
+            <html>
+                <body>
+                    <h1>Safe Search Results</h1>
+                    <p>You searched for: &lt;script&gt;alert(1)&lt;/script&gt;</p>
+                </body>
+            </html>
+            
