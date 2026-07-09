@@ -1,0 +1,15 @@
+Normal URL:
+?name=student
+
+Payload URL:
+?name=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E
+
+Vulnerable sink:
+innerHTML inserted the value into the DOM as HTML.
+
+Safe sink:
+textContent inserted the value as text.
+
+Browser result:
+The vulnerable section interpreted the payload.
+The safe section displayed the payload as text.

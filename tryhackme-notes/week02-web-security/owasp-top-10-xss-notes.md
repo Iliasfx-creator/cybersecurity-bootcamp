@@ -1,54 +1,58 @@
-# OWASP Top 10 — XSS-related Notes
+# TryHackMe XSS Notes
 
-## Date
+## Rooms / sections worked on
 
-2026-07-08
-
-## Status
-
-Not started
+- Intro to Cross-site Scripting
+- XSS
+- OWASP Top 10 XSS section, if available
 
 ## Concepts learned
 
-## Commands/tools used
+## Reflected XSS
 
-## Mistakes
+## Stored XSS
 
-## What connected with my GitHub labs
+## DOM-based XSS
 
-## What I still do not fully understand
+## What connected with my local labs
+
+## What was different from my local labs
+
+## Mistakes / unclear points
 
 ## No flags / no answers note
 
 I did not publish flags or challenge answers.
 
-## Stored XSS connection to my local lab
+## DOM XSS connection to my local lab
 
 ### What TryHackMe showed
 
-TryHackMe showed that XSS is about unsafe handling of user-controlled input in web applications.
+TryHackMe showed that XSS can happen in different forms, including reflected, stored, and DOM-based XSS.
 
-It helped connect XSS to real application behavior instead of treating it as just a payload.
+DOM XSS focuses on browser-side JavaScript and DOM manipulation.
 
-### What matched my local lab
+### What matched my local DOM lab
 
-My local lab showed the same core issue: user input entered the application, was processed by the server, and was later rendered in a browser response.
+My local DOM lab showed a URL parameter being read by JavaScript and written into the page.
 
-The stored XSS lab made the source, storage, and sink easier to see.
+The vulnerable sink used innerHTML.
+
+The safer sink used textContent.
+
+This matched the idea that DOM XSS depends on sources and sinks in client-side code.
 
 ### What was different
 
-The local lab was intentionally simple and stored comments only in server memory.
+The local lab was intentionally simple and used one static HTML file.
 
-A real application might store user input in a database and show it to many different users.
+Real applications may have larger JavaScript codebases, frameworks, routing, templates, and many more sources and sinks.
 
-Real applications also have more complex contexts, templates, sessions, cookies, and defenses.
+### What I still find confusing
 
-### Mistakes / unclear points
+I still need more practice identifying dangerous DOM sinks in larger JavaScript code.
 
-I still need more practice identifying all sinks where stored input can appear.
-
-I also need more practice understanding context-aware encoding for HTML body, HTML attributes, JavaScript, URLs, and CSS.
+I also need more practice with context-aware encoding for HTML attributes, JavaScript strings, URLs, and CSS.
 
 ### No flags / no answers note
 

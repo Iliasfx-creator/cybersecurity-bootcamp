@@ -1,0 +1,73 @@
+=== Normal request ===
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 09 Jul 2026 16:53:06 GMT
+Content-type: text/html
+Content-Length: 643
+Last-Modified: Thu, 09 Jul 2026 16:51:57 GMT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM XSS Lab</title>
+</head>
+<body>
+    <h1>DOM XSS Lab</h1>
+
+    <h2>Vulnerable DOM Sink</h2>
+    <div id="vulnerable-output"></div>
+
+    <h2>Safe DOM Sink</h2>
+    <div id="safe-output"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "guest";
+
+        // Vulnerable sink
+        document.getElementById("vulnerable-output").innerHTML =
+            "Hello " + name;
+
+        // Safer sink for text
+        document.getElementById("safe-output").textContent =
+            "Hello " + name;
+    </script>
+</body>
+</html>
+
+=== DOM XSS payload request ===
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 09 Jul 2026 16:53:06 GMT
+Content-type: text/html
+Content-Length: 643
+Last-Modified: Thu, 09 Jul 2026 16:51:57 GMT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM XSS Lab</title>
+</head>
+<body>
+    <h1>DOM XSS Lab</h1>
+
+    <h2>Vulnerable DOM Sink</h2>
+    <div id="vulnerable-output"></div>
+
+    <h2>Safe DOM Sink</h2>
+    <div id="safe-output"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "guest";
+
+        // Vulnerable sink
+        document.getElementById("vulnerable-output").innerHTML =
+            "Hello " + name;
+
+        // Safer sink for text
+        document.getElementById("safe-output").textContent =
+            "Hello " + name;
+    </script>
+</body>
+</html>
