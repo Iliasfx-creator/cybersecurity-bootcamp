@@ -1,0 +1,16 @@
+Expected vulnerable behavior:
+The vulnerable comments section renders the stored comment as raw HTML/JavaScript.
+In the browser, the payload executes as JavaScript.
+
+Expected safe behavior:
+The safe comments section renders the same stored comment as escaped text.
+The browser displays the payload instead of executing it.
+
+Source:
+POST /comment body
+
+Storage:
+comments list in server memory
+
+Sink:
+GET / HTML response rendering comments
