@@ -4,7 +4,7 @@ This repository documents my 400–500 hour cybersecurity training path focused 
 
 ## Current Phase
 
-Week 1: Linux & Networking Foundations
+Week 2: web security
 
 ## Rules
 
