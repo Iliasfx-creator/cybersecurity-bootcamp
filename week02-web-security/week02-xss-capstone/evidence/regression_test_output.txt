@@ -1,0 +1,12 @@
+[PASS] Home route returns 200
+[PASS] Reflected vulnerable response contains raw marker
+[PASS] Reflected safe response contains escaped marker
+[PASS] Comment POST returns redirect
+[PASS] Comments page returns 200
+[PASS] Stored vulnerable section contains raw marker
+[PASS] Stored safe section contains escaped marker
+[PASS] DOM page contains vulnerable and safe sinks
+[PASS] Unknown route returns 404
+
+Passed: 9
+Failed: 0
