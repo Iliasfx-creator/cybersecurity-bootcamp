@@ -4,7 +4,11 @@
 
 ```bash
 python3 week02-web-security/week02-xss-capstone/tests/xss_regression_tests.py
-Result
+```
+
+## Result
+
+```text
 [PASS] Home route returns 200
 [PASS] Reflected vulnerable response contains raw marker
 [PASS] Reflected safe response contains escaped marker
@@ -17,36 +21,34 @@ Result
 
 Passed: 9
 Failed: 0
-Methodology
+```
+
+## Methodology
 
 The tests use only Python standard-library modules.
 
 HTTP GET requests verify status codes and response bodies.
 
-A custom redirect handler prevents the client from automatically following the comment POST redirect, allowing the 303 response and Location header to be checked directly.
+A custom redirect handler prevents the client from automatically following the comment POST redirect. This allows the test to inspect the original `303` response and its `Location` header.
 
 The reflected tests compare raw and escaped rendering of the same marker.
 
-Each stored rendering test creates the comment state that it requires before requesting the comments page.
+Each stored rendering test submits its own marker before requesting the comments page. The rendering tests therefore do not depend on the execution order of the suite.
 
-The stored sections are examined separately so raw rendering in the intentionally vulnerable section does not create a false result for the safe section.
+The vulnerable and safe stored sections are extracted and checked separately.
 
-Exit behavior
+## Exit behavior
 
-The test process returns exit code 0 when all checks pass.
+The test process exits with code `0` when all checks pass.
 
-It returns a non-zero exit code when one or more checks fail.
+It returns a non-zero code when one or more checks fail.
 
-This makes the test file suitable for future continuous-integration use.
+## Limitations
 
-Limitations
+The application server must already be running on `127.0.0.1:8005`.
 
-The server must already be running on 127.0.0.1:8005.
+The suite checks HTTP responses but does not execute JavaScript in a real browser.
 
-The suite checks response content but does not run a real browser.
+It confirms that the DOM page contains `URLSearchParams`, `innerHTML`, and `textContent`, but browser execution is verified separately in `evidence/dom_browser_summary.txt`.
 
-It confirms that the DOM page contains URLSearchParams, innerHTML, and textContent, but it does not execute JavaScript.
-
-Actual DOM execution was therefore verified separately in a browser and documented in evidence/dom_browser_summary.txt.
-
-The test server stores comments only in memory, so its state disappears when the process restarts.
+Comments are stored only in memory and disappear when the server restarts.

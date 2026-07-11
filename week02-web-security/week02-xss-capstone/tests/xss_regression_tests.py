@@ -56,6 +56,14 @@ def post_without_redirect(
         return error.code, body, dict(error.headers)
 
 
+def add_comment(comment: str) -> None:
+    status, _, _ = post_without_redirect(
+        "/comments",
+        {"comment": comment},
+    )
+    assert status == 303, f"Expected 303, received {status}"
+
+
 def extract_section(body: str, element_id: str) -> str:
     start_marker = f'<ul id="{element_id}">'
     end_marker = "</ul>"
@@ -123,6 +131,8 @@ def test_comments_page_returns_200() -> None:
 
 
 def test_stored_vulnerable_section_contains_raw_marker() -> None:
+    add_comment(MARKER)
+
     _, body, _ = get("/comments")
     vulnerable_section = extract_section(body, "vulnerable-comments")
 
@@ -130,6 +140,8 @@ def test_stored_vulnerable_section_contains_raw_marker() -> None:
 
 
 def test_stored_safe_section_contains_escaped_marker() -> None:
+    add_comment(MARKER)
+
     _, body, _ = get("/comments")
     safe_section = extract_section(body, "safe-comments")
 
