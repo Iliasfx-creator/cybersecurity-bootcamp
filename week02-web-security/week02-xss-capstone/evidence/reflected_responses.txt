@@ -1,0 +1,41 @@
+=== Reflected vulnerable ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Sat, 11 Jul 2026 17:27:56 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 281
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vulnerable Reflected XSS</title>
+</head>
+<body>
+    <h1>Vulnerable Reflected Search</h1>
+    <p id="reflected-output">You searched for: <b>test-marker</b></p>
+    <p><a href="/">Back home</a></p>
+</body>
+</html>
+
+=== Reflected safe ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Sat, 11 Jul 2026 17:27:56 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 281
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Safe Reflected XSS</title>
+</head>
+<body>
+    <h1>Safe Reflected Search</h1>
+    <p id="reflected-output">You searched for: &lt;b&gt;test-marker&lt;/b&gt;</p>
+    <p><a href="/">Back home</a></p>
+</body>
+</html>

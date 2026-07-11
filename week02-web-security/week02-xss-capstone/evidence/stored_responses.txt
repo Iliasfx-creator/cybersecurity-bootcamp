@@ -1,0 +1,45 @@
+=== Submit stored marker ===
+HTTP/1.0 303 See Other
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Sat, 11 Jul 2026 17:28:23 GMT
+Location: /comments
+Content-Length: 0
+
+
+=== View stored comments ===
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.14.4
+Date: Sat, 11 Jul 2026 17:28:23 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 613
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stored XSS Comments</title>
+</head>
+<body>
+    <h1>Stored XSS Comments</h1>
+
+    <h2>Add comment</h2>
+
+    <form method="POST" action="/comments">
+        <input type="text" name="comment" value="hello">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Vulnerable comments</h2>
+    <ul id="vulnerable-comments">
+        <li><b>test-marker</b></li>
+    </ul>
+
+    <h2>Safe comments</h2>
+    <ul id="safe-comments">
+        <li>&lt;b&gt;test-marker&lt;/b&gt;</li>
+    </ul>
+
+    <p><a href="/">Back home</a></p>
+</body>
+</html>

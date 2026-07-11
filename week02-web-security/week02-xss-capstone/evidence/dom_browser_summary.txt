@@ -1,0 +1,24 @@
+Payload URL:
+http://127.0.0.1:8005/dom?name=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E
+
+Source:
+The name parameter read from window.location.search through URLSearchParams.
+
+Vulnerable sink:
+innerHTML.
+
+Observed vulnerable behavior:
+The browser interpreted the injected value as HTML.
+It created an image element.
+The invalid image source triggered the local onerror event handler and displayed an alert.
+
+Safe sink:
+textContent.
+
+Observed safe behavior:
+The browser displayed the payload as plain text.
+It did not create an image element and did not execute the event handler.
+
+Why curl alone cannot validate execution:
+curl retrieves the HTTP response but does not build a browser DOM or execute JavaScript.
+A real browser was required to verify the DOM-based behavior.
