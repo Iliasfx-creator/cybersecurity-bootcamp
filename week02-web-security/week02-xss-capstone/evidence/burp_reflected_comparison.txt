@@ -1,0 +1,31 @@
+=== Burp Repeater: vulnerable reflected request ===
+
+GET /reflected-vuln?q=%3Cb%3Etest-marker%3C%2Fb%3E HTTP/1.1
+Host: 127.0.0.1:8005
+
+=== Vulnerable response excerpt ===
+
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+
+<p id="reflected-output">You searched for: <b>test-marker</b></p>
+
+=== Burp Repeater: safe reflected request ===
+
+GET /reflected-safe?q=%3Cb%3Etest-marker%3C%2Fb%3E HTTP/1.1
+Host: 127.0.0.1:8005
+
+=== Safe response excerpt ===
+
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+
+<p id="reflected-output">You searched for: &lt;b&gt;test-marker&lt;/b&gt;</p>
+
+=== Comparison ===
+
+The request value was identical in both cases.
+
+The vulnerable route inserted the decoded value directly into HTML.
+
+The safe route applied HTML escaping before rendering.

@@ -1,0 +1,42 @@
+=== Burp Repeater: stored input POST ===
+
+POST /comments HTTP/1.1
+Host: 127.0.0.1:8005
+Content-Type: application/x-www-form-urlencoded
+
+comment=%3Cb%3Etest-marker%3C%2Fb%3E
+
+=== Redirect response ===
+
+HTTP/1.0 303 See Other
+Location: /comments
+Content-Length: 0
+
+=== Subsequent GET request ===
+
+GET /comments HTTP/1.1
+Host: 127.0.0.1:8005
+
+=== Vulnerable stored response excerpt ===
+
+<ul id="vulnerable-comments">
+    <li><b>test-marker</b></li>
+</ul>
+
+=== Safe stored response excerpt ===
+
+<ul id="safe-comments">
+    <li>&lt;b&gt;test-marker&lt;/b&gt;</li>
+</ul>
+
+=== Flow analysis ===
+
+The comment entered through POST form data.
+
+The server stored the decoded value in its in-memory comments list.
+
+A later GET rendered the same stored value in two different sinks.
+
+The vulnerable sink interpreted the value as HTML.
+
+The safe sink applied HTML escaping before rendering.
