@@ -1,0 +1,20 @@
+[PASS] Protected list without session returns 401
+[PASS] Vulnerable read still requires authentication
+[PASS] Alice list excludes Bob documents
+[PASS] Alice reads own document through vulnerable route
+[PASS] Alice reads Bob document through vulnerable route
+[PASS] Safe route denies Alice access to Bob document
+[PASS] Bob reads own document through safe route
+[PASS] Vulnerable update changes Bob document
+[PASS] Safe update of Bob document is denied
+[PASS] Safe update leaves Bob document unchanged
+[PASS] Invalid read identifiers return 400
+[PASS] Invalid update identifier returns 400
+[PASS] Missing document returns 404
+[PASS] Unknown GET route returns 404
+[PASS] Unknown POST route returns 404
+[PASS] Logout invalidates session
+[PASS] Unknown demo user is rejected
+
+Passed: 17
+Failed: 0
