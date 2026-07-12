@@ -1,0 +1,55 @@
+=== Read comparison ===
+
+Actor:
+Alice
+
+Requested resource:
+Bob document 201
+
+Vulnerable endpoint:
+GET /vuln/document?id=201
+
+Vulnerable result:
+HTTP 200.
+Bob's document was returned to Alice.
+
+Safe endpoint:
+GET /safe/document?id=201
+
+Safe result:
+HTTP 404.
+The endpoint did not disclose whether the foreign document existed.
+
+=== Update comparison ===
+
+Actor:
+Alice
+
+Requested resource:
+Bob document 201
+
+Vulnerable endpoint:
+POST /vuln/document/update
+
+Vulnerable result:
+HTTP 200.
+Bob's document content was modified by Alice.
+
+Safe endpoint:
+POST /safe/document/update
+
+Safe result:
+HTTP 404.
+The update was rejected and Bob's document remained unchanged.
+
+=== Root cause ===
+
+The vulnerable endpoints used the client-controlled document ID to select a resource but did not verify that the authenticated user owned it.
+
+=== Correct control ===
+
+For every protected read, update, and delete operation, the server must verify:
+
+document["owner"] == current_user
+
+Authentication alone is insufficient.

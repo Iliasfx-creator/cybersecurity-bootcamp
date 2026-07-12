@@ -1,0 +1,64 @@
+=== Demo login as Alice ===
+
+POST /demo-login HTTP/1.1
+Host: 127.0.0.1:8010
+Content-Type: application/x-www-form-urlencoded
+
+username=alice
+
+=== Login response excerpt ===
+
+HTTP/1.0 200 OK
+Set-Cookie: session=REDACTED; Path=/; HttpOnly; SameSite=Lax
+
+{"message":"Demo login successful","user":"alice"}
+
+=== Vulnerable read: Alice document ===
+
+GET /vuln/document?id=101 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 200 OK
+
+{"document":{"id":101,"owner":"alice","title":"Alice private notes","content":"Alice document 101"}}
+
+=== Vulnerable read: Bob document with same Alice session ===
+
+GET /vuln/document?id=201 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 200 OK
+
+{"document":{"id":201,"owner":"bob","title":"Bob private notes","content":"Bob document 201"}}
+
+=== Safe read: Alice document ===
+
+GET /safe/document?id=101 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 200 OK
+
+{"document":{"id":101,"owner":"alice","title":"Alice private notes","content":"Alice document 101"}}
+
+=== Safe read: Bob document with same Alice session ===
+
+GET /safe/document?id=201 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 404 Not Found
+
+{"error":"Document not found"}
+
+=== Analysis ===
+
+Authentication succeeded in all four requests because the session belonged to Alice.
+
+The vulnerable endpoint selected the document only from the client-controlled ID and did not verify ownership.
+
+Changing only id=101 to id=201 exposed Bob's document to Alice.
+
+The safe endpoint performed a server-side ownership check and returned 404 for Bob's document.

