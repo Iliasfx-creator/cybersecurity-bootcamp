@@ -1,0 +1,14 @@
+[PASS] Unauthenticated request denied
+[PASS] Alice to Alice document allowed
+[PASS] Alice to Bob document denied
+[PASS] Denied update leaves data unchanged
+[PASS] Bob to Bob document allowed
+[PASS] Non-admin operation denied
+[PASS] Admin operation allowed
+[PASS] Client-supplied admin role ignored
+[PASS] Admin can access all documents
+[PASS] Alternative method rejected
+[PASS] Invalid and nonexistent IDs handled safely
+
+Passed: 11
+Failed: 0

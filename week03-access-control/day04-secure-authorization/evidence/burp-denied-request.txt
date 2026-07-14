@@ -1,0 +1,23 @@
+Scenario: Alice attempts to read a document owned by Bob.
+
+Redaction:
+Cookie: session=REDACTED
+Password: REDACTED
+
+--- Request ---
+
+GET /document?id=201 HTTP/1.1
+Host: 127.0.0.1:8011
+Cookie: session=REDACTED
+Connection: close
+
+--- Response ---
+
+HTTP/1.0 404 Not Found
+Content-Type: application/json; charset=utf-8
+
+{"error":"Document not found"}
+
+Result:
+The object-level authorization policy denied access and did not reveal
+whether the requested document existed.
