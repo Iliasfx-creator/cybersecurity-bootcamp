@@ -86,6 +86,7 @@ Result:
 ```text
 Passed: 11
 Failed: 0
+```
 
 The complete output is stored in:
 

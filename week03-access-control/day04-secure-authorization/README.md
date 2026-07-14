@@ -14,6 +14,7 @@ The centralized policy is located in:
 
 ```text
 app/authorization.py
+```
 
 The policy evaluates:
 

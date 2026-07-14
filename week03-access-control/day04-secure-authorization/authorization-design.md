@@ -16,6 +16,7 @@ The central authorization policy is implemented in:
 
 ```text
 app/authorization.py
+```
 
 The function accepts:
 
