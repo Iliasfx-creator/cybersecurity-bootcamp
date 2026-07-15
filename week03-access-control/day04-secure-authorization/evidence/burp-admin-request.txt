@@ -1,0 +1,26 @@
+Scenario: An authenticated administrator invokes a role-management operation.
+
+Redaction:
+Cookie: session=REDACTED
+Password: REDACTED
+
+--- Request ---
+
+POST /admin/users/role HTTP/1.1
+Host: 127.0.0.1:8011
+Cookie: session=REDACTED
+Content-Type: application/x-www-form-urlencoded
+Connection: close
+
+username=bob&role=user
+
+--- Response ---
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"message":"User role updated","user":{"username":"bob","role":"user"}}
+
+Result:
+The operation was allowed because the actor's administrator role was obtained
+from trusted server-side session data.

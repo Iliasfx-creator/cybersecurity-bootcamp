@@ -4,7 +4,7 @@ This repository documents my 400–500 hour cybersecurity training path focused 
 
 ## Current Phase
 
-Week 2: web security
+Week 3 — Access Control / Product Security Foundations
 
 ## Rules
 
