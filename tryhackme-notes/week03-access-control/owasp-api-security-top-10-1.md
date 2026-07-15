@@ -1,6 +1,6 @@
 # OWASP API Security Top 10 — 1
 
-Status: Started
+Status: 100%
 
 ## Concepts
 

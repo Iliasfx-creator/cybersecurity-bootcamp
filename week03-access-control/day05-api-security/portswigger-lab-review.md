@@ -18,15 +18,22 @@ The API path and documented operation were examined to identify functionality th
 
 ### Evidence or side effect
 
-A normal authenticated user could invoke a destructive account-management function that should have required elevated privileges.
+A normal authenticated user could apply a destructive operation to another
+user's account object without authorization.
 
 ### Root cause
 
-The dangerous API function lacked server-side function-level authorization. Documentation increased visibility but was not the primary authorization failure.
+The API accepted a client-supplied target username without verifying that the
+authenticated actor was authorized to act on that specific user object. This
+is primarily Broken Object Level Authorization. The exposed documentation
+helped discover the endpoint but was not the authorization failure.
 
 ### Correct server-side remediation
 
-Require administrative authorization for destructive user-management operations, independently of whether documentation is public. Protect private documentation and keep the API inventory current.
+Authorize the actor-target relationship on every deletion. Allow self-deletion
+only for the authenticated user's own account and require explicit
+administrative permission when deleting another user's account. Documentation
+that is not intended to be public should also be protected.
 
 ### Mistake or difficulty
 
