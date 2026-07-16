@@ -15,28 +15,28 @@ These notes document my TryHackMe learning progress.
 
 ### Foundations
 
-- - What is Networking? — 100%
-- - Principles of Security — 100%
-- - Careers in Cyber — 100%
-- - Offensive Security Intro — 100%
-- - Defensive Security Intro — 100%
+- What is Networking? — 100%
+- Principles of Security — 100%
+- Careers in Cyber — 100%
+- Offensive Security Intro — 100%
+- Defensive Security Intro — 100%
 
 ### Web security
 
-- - Web Application Basics — 100%
-- - Burp Suite: The Basics — 100%
-- - Intro to Cross-site Scripting — 100%
-- - XSS Introduction — 100%
+- Web Application Basics — 100%
+- Burp Suite: The Basics — 100%
+- Intro to Cross-site Scripting — 100%
+- XSS Introduction — 100%
 
 ### Access control, APIs and Product Security
 
-- - Intro to IDOR — 100%
-- - Broken Access Control — 100%
-- - Corridor — Completed
-- - OWASP API Security Top 10 – 1 — 100%
-- - OWASP Top 10 2025: IAAA Failures — 100%
-- - Intro to Threat Emulation — 100%
-- - Threat Modelling — 100%
+- Intro to IDOR — 100%
+- Broken Access Control — 100%
+- Corridor — Completed
+- OWASP API Security Top 10 – 1 — 100%
+- OWASP Top 10 2025: IAAA Failures — 100%
+- Intro to Threat Emulation — 100%
+- Threat Modelling — 100%
 
 ## Not claimed as complete
 

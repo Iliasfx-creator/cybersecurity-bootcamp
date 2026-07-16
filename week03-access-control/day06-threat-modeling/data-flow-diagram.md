@@ -35,21 +35,26 @@ flowchart TD
     API -->|"TB-3"| Storage
     API -->|"TB-3"| Audit
     API -->|"Invitation delivery"| Email
-Boundary interpretation
-The browser is controlled by the user and cannot make authorization decisions.
-The API gateway is an enforcement layer, but it is not the final authorization
-point for business actions.
-The backend policy evaluates actor, tenant, role, action and object before data
-access.
-Database and storage operations must use the already-authorized tenant scope.
-Email delivery crosses an external dependency boundary.
-/api/v1 and /api/v2 must reach the same authorization policy.
-High-risk flows
-Cross-tenant document lookup
-Object-storage download authorization
-Role and invitation changes
-Support-administrator access
-Organization export creation and download
-Session reuse after logout or privilege downgrade
-Deprecated API access
-Audit-event creation
+```
+
+## Boundary interpretation
+
+- The browser is controlled by the user and cannot make authorization decisions.
+- The API gateway is an enforcement layer, but it is not the final authorization
+  point for business actions.
+- The backend policy evaluates actor, tenant, role, action and object before data
+  access.
+- Database and storage operations must use the already-authorized tenant scope.
+- Email delivery crosses an external dependency boundary.
+- `/api/v1` and `/api/v2` must reach the same authorization policy.
+
+## High-risk flows
+
+- Cross-tenant document lookup
+- Object-storage download authorization
+- Role and invitation changes
+- Support-administrator access
+- Organization export creation and download
+- Session reuse after logout or privilege downgrade
+- Deprecated API access
+- Audit-event creation
