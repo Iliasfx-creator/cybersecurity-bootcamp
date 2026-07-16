@@ -238,5 +238,4 @@ Mitigation: Authorize before URL creation, scope the signature to one
 object and method, use a short expiry, avoid logging complete URLs and support
 revocation for high-risk downloads.
 Verification test: ST-14
-Residual risk: The authorized recipient can still copy downloaded
-content.
+Residual risk: The authorized recipient can still copy downloaded content.

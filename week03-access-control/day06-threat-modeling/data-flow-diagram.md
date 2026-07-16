@@ -2,13 +2,13 @@
 
 ```mermaid
 flowchart TD
-    subgraph Client["TB-1: Untrusted client zone"]
+    subgraph Client["Untrusted client zone"]
         User["User / Tenant Admin"]
         Browser["Browser + Session"]
         User --> Browser
     end
 
-    subgraph Edge["TB-2: Public edge"]
+    subgraph Edge["Public edge zone"]
         Gateway["API Gateway"]
         V1["Deprecated /api/v1"]
         V2["Current /api/v2"]
@@ -16,24 +16,24 @@ flowchart TD
         Gateway --> V2
     end
 
-    subgraph Application["TB-3: Application zone"]
+    subgraph Application["Trusted application zone"]
         API["Backend API + Authorization Policy"]
-        V1 --> API
-        V2 --> API
+        V1 -->|"TB-2"| API
+        V2 -->|"TB-2"| API
     end
 
-    subgraph Data["TB-3: Data and service zone"]
+    subgraph Data["Protected data-services zone"]
         Database[("Database")]
         Storage[("Object Storage")]
         Audit[("Audit Logs")]
-        API --> Database
-        API --> Storage
-        API --> Audit
     end
 
     Email["TB-4: External Email Service"]
 
-    Browser -->|"HTTPS request and session"| Gateway
+    Browser -->|"TB-1: HTTPS request and session"| Gateway
+    API -->|"TB-3"| Database
+    API -->|"TB-3"| Storage
+    API -->|"TB-3"| Audit
     API -->|"Invitation delivery"| Email
 Boundary interpretation
 The browser is controlled by the user and cannot make authorization decisions.

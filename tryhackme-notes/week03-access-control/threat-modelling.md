@@ -50,11 +50,11 @@ observed behavior.
 
 It can support:
 
-threat-informed testing,
-adversary emulation,
-control-coverage reviews,
-detection planning,
-communication between offensive and defensive teams.
+Threat-informed testing
+Adversary emulation
+Control-coverage reviews
+Detection planning
+Communication between offensive and defensive teams
 
 ATT&CK does not replace a system-specific threat model. It does not by itself
 decide whether an AcmeDocs user may access a particular tenant object.
@@ -74,15 +74,11 @@ ATT&CK is most useful as a supporting framework for realistic attacker behavior,
 security testing and detection coverage.
 
 Mistakes
-
 I initially treated framework names as alternative answers to the same
 question.
-
 The room clarified that the frameworks serve different purposes: discovery,
 prioritization, risk analysis and adversary-behavior mapping.
-
 I also needed to avoid treating a generic STRIDE label as a complete threat.
-
 Lessons learned
 Model the system before identifying threats.
 Mark every trust boundary.
@@ -91,6 +87,5 @@ Connect every mitigation to a verification test.
 Revisit the model when architecture or permissions change.
 Use multiple frameworks only when each one adds a clear purpose.
 Evidence handling
-
-No answers, flags, target addresses, credentials, cookies, passwords or session
-values are included.
+No answers, flags, target addresses, credentials, cookies, passwords or
+session values are included.

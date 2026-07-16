@@ -64,8 +64,6 @@ MITRE ATT&CK can make testing more threat-informed but does not replace
 application-specific authorization modeling.
 
 Final assessment
-
 Status: Ready for implementation planning with security requirements.
-
 Production approval remains conditional on implementation evidence for all
 critical and high-severity controls.

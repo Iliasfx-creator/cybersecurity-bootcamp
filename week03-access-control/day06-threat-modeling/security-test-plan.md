@@ -36,13 +36,13 @@ Evidence requirements
 
 Evidence should include:
 
-actor role and tenant fixture,
-sanitized request,
-response status and relevant body,
-before-and-after object state,
-audit-event identifier where applicable,
-API version and method,
-test result.
+Actor role and tenant fixture
+Sanitized request
+Response status and relevant body
+Before-and-after object state
+Audit-event identifier where applicable
+API version and method
+Test result
 
 Any example containing authentication material must use:
 
@@ -52,11 +52,11 @@ Regression triggers
 
 The threat model and tests must be reviewed when:
 
-a role or permission changes,
-a new API version or endpoint is introduced,
-document sharing is added,
-storage-download behavior changes,
-a new external provider is added,
-session or invitation formats change,
-export scope changes,
-a tenant identifier is added to any request schema.
+A role or permission changes
+A new API version or endpoint is introduced
+Document sharing is added
+Storage-download behavior changes
+A new external provider is added
+Session or invitation formats change
+Export scope changes
+A tenant identifier is added to any request schema
