@@ -1,0 +1,38 @@
+PAIR 05 - ORGANIZATION EXPORT (BFLA)
+
+Actor: alice (tenant=alpha, role=user)
+Function: organization export for tenant alpha
+
+[VULNERABLE V1 REQUEST]
+
+GET /api/v1/organizations/alpha/export HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[VULNERABLE V1 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"tenant_id":"alpha","documents":[{"id":"alpha-1001","tenant_id":"alpha","owner_id":"alice","title":"Alpha project plan","content":"Alpha document owned by Alice.","internal_label":"alpha-confidential"},{"id":"alpha-1002","tenant_id":"alpha","owner_id":"admin_alpha","title":"Alpha administration notes","content":"Alpha document owned by the tenant administrator.","internal_label":"alpha-restricted"}]}
+
+[SECURE V2 REQUEST]
+
+GET /api/v2/organizations/alpha/export HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[SECURE V2 RESPONSE]
+
+HTTP/1.0 403 Forbidden
+Content-Type: application/json; charset=utf-8
+
+{"error":"Forbidden"}
+
+[OBSERVATION]
+
+The v1 endpoint treated authentication as sufficient for a privileged export.
+The v2 policy required the tenant_admin role for the matching tenant. Alice's
+membership in alpha did not grant permission to use the export function.

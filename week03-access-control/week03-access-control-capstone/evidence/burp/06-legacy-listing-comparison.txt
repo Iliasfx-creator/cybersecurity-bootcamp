@@ -1,0 +1,38 @@
+PAIR 06 - LEGACY POLICY DISCREPANCY
+
+Actor: alice (tenant=alpha, role=user)
+Function: document collection listing
+
+[VULNERABLE V1 REQUEST]
+
+GET /api/v1/documents HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[VULNERABLE V1 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"documents":[{"id":"alpha-1001","tenant_id":"alpha","owner_id":"alice","title":"Alpha project plan","content":"Alpha document owned by Alice.","internal_label":"alpha-confidential"},{"id":"alpha-1002","tenant_id":"alpha","owner_id":"admin_alpha","title":"Alpha administration notes","content":"Alpha document owned by the tenant administrator.","internal_label":"alpha-restricted"},{"id":"beta-2001","tenant_id":"beta","owner_id":"bob","title":"Beta project plan","content":"Beta document owned by Bob.","internal_label":"beta-confidential"},{"id":"beta-2002","tenant_id":"beta","owner_id":"bob","title":"Beta operational notes","content":"Second Beta document owned by Bob.","internal_label":"beta-restricted"}]}
+
+[SECURE V2 REQUEST]
+
+GET /api/v2/documents HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[SECURE V2 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"documents":[{"id":"alpha-1001","owner_id":"alice","title":"Alpha project plan","content":"Alpha document owned by Alice."}]}
+
+[OBSERVATION]
+
+The legacy v1 policy returned every document to any authenticated actor. The
+v2 collection applied the same object-level policy used by individual reads
+and returned only Alice's authorized document.

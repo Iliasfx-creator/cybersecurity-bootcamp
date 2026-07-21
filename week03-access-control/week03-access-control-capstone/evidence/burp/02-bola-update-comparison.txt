@@ -1,0 +1,44 @@
+PAIR 02 - CROSS-TENANT DOCUMENT UPDATE (BOLA)
+
+Actor: alice (tenant=alpha, role=user)
+Target: beta-2001 (tenant=beta, owner=bob)
+Test order: v2 was sent before v1 to preserve the original baseline.
+
+[VULNERABLE V1 REQUEST]
+
+PATCH /api/v1/documents/beta-2001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Content-Type: application/json
+Connection: close
+
+{"content":"unauthorized-change"}
+
+[VULNERABLE V1 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"document":{"id":"beta-2001","tenant_id":"beta","owner_id":"bob","title":"Beta project plan","content":"unauthorized-change","internal_label":"beta-confidential"}}
+
+[SECURE V2 REQUEST]
+
+PATCH /api/v2/documents/beta-2001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Content-Type: application/json
+Connection: close
+
+{"content":"unauthorized-change"}
+
+[SECURE V2 RESPONSE]
+
+HTTP/1.0 404 Not Found
+Content-Type: application/json; charset=utf-8
+
+{"error":"Document not found"}
+
+[OBSERVATION]
+
+The v1 endpoint allowed Alice to modify Bob's document. The v2 endpoint
+denied the same operation before mutation, leaving the document unchanged.

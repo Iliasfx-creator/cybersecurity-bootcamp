@@ -1,0 +1,38 @@
+PAIR 01 - CROSS-TENANT DOCUMENT READ (BOLA)
+
+Actor: alice (tenant=alpha, role=user)
+Target: beta-2001 (tenant=beta, owner=bob)
+
+[VULNERABLE V1 REQUEST]
+
+GET /api/v1/documents/beta-2001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[VULNERABLE V1 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"document":{"id":"beta-2001","tenant_id":"beta","owner_id":"bob","title":"Beta project plan","content":"Beta document owned by Bob.","internal_label":"beta-confidential"}}
+
+[SECURE V2 REQUEST]
+
+GET /api/v2/documents/beta-2001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[SECURE V2 RESPONSE]
+
+HTTP/1.0 404 Not Found
+Content-Type: application/json; charset=utf-8
+
+{"error":"Document not found"}
+
+[OBSERVATION]
+
+The v1 endpoint returned a cross-tenant object to Alice. The v2 endpoint
+applied object-level tenant and ownership authorization and used a concealed
+denial identical to the response for a nonexistent document.

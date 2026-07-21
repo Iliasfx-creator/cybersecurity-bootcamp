@@ -1,0 +1,38 @@
+PAIR 04 - RESPONSE PROPERTY AUTHORIZATION (BOPLA)
+
+Actor: alice (tenant=alpha, role=user)
+Target: alpha-1001 (owned by alice)
+
+[VULNERABLE V1 REQUEST]
+
+GET /api/v1/documents/alpha-1001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[VULNERABLE V1 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"document":{"id":"alpha-1001","tenant_id":"alpha","owner_id":"alice","title":"Alpha project plan","content":"Alpha document owned by Alice.","internal_label":"alpha-confidential"}}
+
+[SECURE V2 REQUEST]
+
+GET /api/v2/documents/alpha-1001 HTTP/1.1
+Host: 127.0.0.1:8012
+Cookie: session=REDACTED
+Connection: close
+
+[SECURE V2 RESPONSE]
+
+HTTP/1.0 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"document":{"id":"alpha-1001","owner_id":"alice","title":"Alpha project plan","content":"Alpha document owned by Alice."}}
+
+[OBSERVATION]
+
+Both requests were authorized at the object level. However, v1 exposed the
+internal_label and tenant_id properties. The v2 response allowlist omitted
+properties that the client did not need.
