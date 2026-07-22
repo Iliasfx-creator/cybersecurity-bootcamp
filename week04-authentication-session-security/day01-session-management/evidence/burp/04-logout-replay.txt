@@ -1,0 +1,23 @@
+Comparison 4: Logout revokes the session and replay fails
+Capture status: COMPLETED
+
+LOGOUT REQUEST
+POST /logout HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+OBSERVED LOGOUT RESPONSE
+HTTP/1.1 200 OK
+Set-Cookie: session=; Max-Age=0; Path=/; HttpOnly; SameSite=Lax
+
+REPLAY REQUEST
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+OBSERVED REPLAY RESPONSE
+HTTP/1.1 401 Unauthorized
+
+Security conclusion:
+Cookie deletion is paired with server-side revocation, so a copied old cookie
+cannot be replayed after logout.

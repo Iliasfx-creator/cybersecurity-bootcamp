@@ -1,0 +1,19 @@
+Comparison 1: Login issues a new session
+Capture status: COMPLETED
+
+REQUEST
+POST /login HTTP/1.1
+Host: 127.0.0.1:8013
+Content-Type: application/json
+Password: REDACTED
+
+{"username":"alice"}
+
+OBSERVED SANITIZED RESPONSE
+HTTP/1.1 200 OK
+Set-Cookie: session=REDACTED_NEW; Path=/; HttpOnly; SameSite=Lax
+Cache-Control: no-store
+
+Security conclusion:
+Authentication issues a fresh opaque cookie and does not expose the session ID
+inside the response body.

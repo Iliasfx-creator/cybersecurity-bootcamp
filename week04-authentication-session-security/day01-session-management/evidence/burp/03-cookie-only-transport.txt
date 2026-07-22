@@ -1,0 +1,33 @@
+Comparison 3: Query and header session values are rejected
+Capture status: COMPLETED
+
+VALID COOKIE BASELINE
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+Observed status: 200
+
+QUERY ATTEMPT
+GET /me?session=REDACTED HTTP/1.1
+Host: 127.0.0.1:8013
+
+Observed status: 401
+
+CUSTOM HEADER ATTEMPT
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+X-Session-ID: REDACTED
+
+Observed status: 401
+
+BEARER ATTEMPT
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Authorization: Bearer REDACTED
+
+Observed status: 401
+
+Security conclusion:
+Only the cookie transport is implemented. Values in URLs or alternative headers
+do not create an authenticated context.

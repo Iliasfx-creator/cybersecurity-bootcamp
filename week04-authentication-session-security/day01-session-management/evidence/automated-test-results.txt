@@ -1,0 +1,43 @@
+test_01_csprng_requests_32_random_bytes (__main__.SessionManagementTests.test_01_csprng_requests_32_random_bytes) ... ok
+test_02_token_has_256_bits_before_encoding (__main__.SessionManagementTests.test_02_token_has_256_bits_before_encoding) ... ok
+test_03_tokens_are_unique (__main__.SessionManagementTests.test_03_tokens_are_unique) ... ok
+test_04_unknown_token_is_rejected (__main__.SessionManagementTests.test_04_unknown_token_is_rejected) ... ok
+test_05_forged_token_is_rejected (__main__.SessionManagementTests.test_05_forged_token_is_rejected) ... ok
+test_06_anonymous_session_is_server_side (__main__.SessionManagementTests.test_06_anonymous_session_is_server_side) ... ok
+test_07_login_issues_authenticated_session (__main__.SessionManagementTests.test_07_login_issues_authenticated_session) ... ok
+test_08_login_rotates_prelogin_token (__main__.SessionManagementTests.test_08_login_rotates_prelogin_token) ... ok
+test_09_attacker_prelogin_cookie_is_not_preserved (__main__.SessionManagementTests.test_09_attacker_prelogin_cookie_is_not_preserved) ... ok
+test_10_relogin_rotates_authenticated_token (__main__.SessionManagementTests.test_10_relogin_rotates_authenticated_token) ... ok
+test_11_privilege_change_rotates_token (__main__.SessionManagementTests.test_11_privilege_change_rotates_token) ... ok
+test_12_old_token_after_privilege_change_is_rejected (__main__.SessionManagementTests.test_12_old_token_after_privilege_change_is_rejected) ... ok
+test_13_new_token_after_privilege_change_works (__main__.SessionManagementTests.test_13_new_token_after_privilege_change_works) ... ok
+test_14_logout_revokes_session (__main__.SessionManagementTests.test_14_logout_revokes_session) ... ok
+test_15_replay_after_logout_is_rejected (__main__.SessionManagementTests.test_15_replay_after_logout_is_rejected) ... ok
+test_16_idle_timeout_expires_session (__main__.SessionManagementTests.test_16_idle_timeout_expires_session) ... ok
+test_17_activity_refreshes_idle_deadline (__main__.SessionManagementTests.test_17_activity_refreshes_idle_deadline) ... ok
+test_18_absolute_timeout_expires_active_session (__main__.SessionManagementTests.test_18_absolute_timeout_expires_active_session) ... ok
+test_19_rotation_does_not_extend_absolute_deadline (__main__.SessionManagementTests.test_19_rotation_does_not_extend_absolute_deadline) ... ok
+test_20_query_session_token_is_not_accepted (__main__.SessionManagementTests.test_20_query_session_token_is_not_accepted) ... ok
+test_21_custom_session_header_is_not_accepted (__main__.SessionManagementTests.test_21_custom_session_header_is_not_accepted) ... ok
+test_22_bearer_token_is_not_accepted (__main__.SessionManagementTests.test_22_bearer_token_is_not_accepted) ... ok
+test_23_local_cookie_has_required_attributes (__main__.SessionManagementTests.test_23_local_cookie_has_required_attributes) ... ok
+test_24_production_cookie_adds_secure (__main__.SessionManagementTests.test_24_production_cookie_adds_secure) ... ok
+test_25_logout_cookie_is_cleared (__main__.SessionManagementTests.test_25_logout_cookie_is_cleared) ... ok
+test_26_production_clear_cookie_keeps_secure (__main__.SessionManagementTests.test_26_production_clear_cookie_keeps_secure) ... ok
+test_27_explicitly_revoked_session_is_denied (__main__.SessionManagementTests.test_27_explicitly_revoked_session_is_denied) ... ok
+test_28_logs_contain_fingerprint_not_raw_token (__main__.SessionManagementTests.test_28_logs_contain_fingerprint_not_raw_token) ... ok
+test_29_client_role_and_tenant_fields_are_ignored (__main__.SessionManagementTests.test_29_client_role_and_tenant_fields_are_ignored) ... ok
+test_30_query_role_does_not_grant_admin_access (__main__.SessionManagementTests.test_30_query_role_does_not_grant_admin_access) ... ok
+test_31_header_role_does_not_grant_admin_access (__main__.SessionManagementTests.test_31_header_role_does_not_grant_admin_access) ... ok
+test_32_admin_requires_server_side_step_up (__main__.SessionManagementTests.test_32_admin_requires_server_side_step_up) ... ok
+test_33_normal_user_cannot_trigger_privilege_rotation (__main__.SessionManagementTests.test_33_normal_user_cannot_trigger_privilege_rotation) ... ok
+test_34_malformed_cookie_is_rejected (__main__.SessionManagementTests.test_34_malformed_cookie_is_rejected) ... ok
+test_35_invalid_login_does_not_issue_cookie (__main__.SessionManagementTests.test_35_invalid_login_does_not_issue_cookie) ... ok
+test_36_responses_disable_caching (__main__.SessionManagementTests.test_36_responses_disable_caching) ... ok
+test_37_unsupported_method_is_rejected (__main__.SessionManagementTests.test_37_unsupported_method_is_rejected) ... ok
+test_38_unknown_route_is_denied (__main__.SessionManagementTests.test_38_unknown_route_is_denied) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.769s
+
+OK

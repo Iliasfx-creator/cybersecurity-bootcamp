@@ -1,0 +1,30 @@
+Comparison 5: Privilege change rotates the session identifier
+Capture status: COMPLETED
+
+ROTATION REQUEST
+POST /session/step-up HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+OBSERVED ROTATION RESPONSE
+HTTP/1.1 200 OK
+Set-Cookie: session=REDACTED_NEW; Path=/; HttpOnly; SameSite=Lax
+
+OLD TOKEN CHECK
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+Observed status: 401
+
+NEW TOKEN CHECK
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_NEW
+
+Observed status: 200
+Observed server-side authentication level: elevated
+
+Security conclusion:
+The old identifier is revoked before the elevated identifier is used. Client
+input does not supply the administrator role.

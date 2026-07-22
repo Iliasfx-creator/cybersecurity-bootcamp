@@ -1,0 +1,27 @@
+Comparison 2: Attacker-supplied pre-login value is replaced
+Capture status: COMPLETED
+
+LOGIN REQUEST
+POST /login HTTP/1.1
+Host: 127.0.0.1:8013
+Content-Type: application/json
+Cookie: session=REDACTED_OLD
+Password: REDACTED
+
+{"username":"alice"}
+
+OBSERVED LOGIN RESPONSE
+HTTP/1.1 200 OK
+Set-Cookie: session=REDACTED_NEW; Path=/; HttpOnly; SameSite=Lax
+
+OLD-VALUE REPLAY
+GET /me HTTP/1.1
+Host: 127.0.0.1:8013
+Cookie: session=REDACTED_OLD
+
+OBSERVED REPLAY RESPONSE
+HTTP/1.1 401 Unauthorized
+
+Security conclusion:
+The presented value is never preserved across authentication, so it cannot fix
+the victim's authenticated session identifier.
