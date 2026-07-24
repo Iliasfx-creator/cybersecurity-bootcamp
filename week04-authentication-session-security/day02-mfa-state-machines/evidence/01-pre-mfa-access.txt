@@ -1,0 +1,56 @@
+Evidence 01 — Protected endpoint access before MFA
+==================================================
+
+Purpose
+-------
+Compare the expected MFA flow with direct access to a protected endpoint after
+only the primary factor has succeeded.
+
+Sanitized primary-authentication request
+----------------------------------------
+POST /login HTTP/2
+Host: REDACTED-LAB-HOST
+Content-Type: application/x-www-form-urlencoded
+Cookie: session=REDACTED
+
+Username: REDACTED
+Password: REDACTED
+
+Sanitized primary-authentication response
+-----------------------------------------
+HTTP/2 302 Found
+Location: /login2
+Set-Cookie: session=REDACTED
+
+State expected by secure design
+-------------------------------
+primary_verified or mfa_pending
+
+Sanitized forced-browsing request
+---------------------------------
+GET /my-account HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: session=REDACTED
+
+OTP: REDACTED
+
+The OTP had not been submitted.
+
+Observed vulnerable response
+----------------------------
+HTTP/2 200 OK
+Content-Type: text/html
+
+The protected account page was returned before MFA completion.
+
+Expected secure response
+------------------------
+HTTP/2 403 Forbidden
+
+A concealed denial could also be used where appropriate. No account properties
+should be returned.
+
+Security conclusion
+-------------------
+The application protected the intended navigation flow but failed to enforce
+the MFA state at the protected endpoint.

